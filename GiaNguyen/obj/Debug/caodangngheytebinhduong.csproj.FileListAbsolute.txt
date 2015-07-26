@@ -1,0 +1,9 @@
+H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\bin\caodangngheytebinhduong.dll
+H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\bin\caodangngheytebinhduong.pdb
+H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\bin\Controller.dll
+H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\bin\Model.dll
+H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\bin\Controller.pdb
+H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\bin\Model.pdb
+H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\obj\Debug\caodangngheytebinhduong.csprojResolveAssemblyReference.cache
+H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\obj\Debug\caodangngheytebinhduong.dll
+H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\obj\Debug\caodangngheytebinhduong.pdb
