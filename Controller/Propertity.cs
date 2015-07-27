@@ -278,8 +278,8 @@ namespace Controller
         {
             try
             {
-                 var _logoSlogan = (from a in db.ESHOP_BANNERs
-                               select a).Take(limit).ToList();
+                var _logoSlogan = (from a in db.ESHOP_BANNERs
+                                   select a).OrderByDescending(a => a.BANNER_ORDER).Take(limit).ToList();
                  return _logoSlogan;
             }
             catch (Exception)
@@ -308,7 +308,7 @@ namespace Controller
         {
             try
             {
-                var list = db.ESHOP_BANNERs.Where(n => n.BANNER_FIELD1 == field).Take(limit).ToList();
+                var list = db.ESHOP_BANNERs.Where(n => n.BANNER_FIELD1 == field).OrderByDescending(a => a.BANNER_ORDER).Take(limit).ToList();
                 return list;
             }
             catch (Exception)
@@ -440,17 +440,17 @@ namespace Controller
 
                     if (str.Count() > 1)
                     {
-                        _result = Convert_Name(str) + "  &raquo;  <a href='/" + rausach.ToList()[0].CAT_SEO_URL + ".html'>" + rausach.ToList()[0].CAT_NAME + "</a>";
+                        _result = Convert_Name(str) + "  <li>  <a href='/" + rausach.ToList()[0].CAT_SEO_URL + ".html'>" + rausach.ToList()[0].CAT_NAME + "</a></li>";
                     }
                     else
                     {
                         if (rausach.ToList()[0].CAT_SHOWITEM > 0)
                         {
-                            _result = "  &raquo; <a href='/" + rausach.ToList()[0].CAT_SEO_URL + ".html'>" + rausach.ToList()[0].CAT_NAME + "</a> ";
+                            _result = "  <li> <a href='/" + rausach.ToList()[0].CAT_SEO_URL + ".html'>" + rausach.ToList()[0].CAT_NAME + "</a></li>";
                         }
                         else
                         {
-                            _result = "  &raquo; <a href='/" + rausach.ToList()[0].CAT_SEO_URL + ".html'>" + rausach.ToList()[0].CAT_NAME + "</a> ";
+                            _result = "  <li> <a href='/" + rausach.ToList()[0].CAT_SEO_URL + ".html'>" + rausach.ToList()[0].CAT_NAME + "</a></li>";
                         }
                     }
                 }
@@ -470,17 +470,17 @@ namespace Controller
                         string[] str = cat_parent_path_Max.Split(',');
                         if (str.Count() > 1)
                         {
-                            _result = Convert_Name(str) + "  &raquo; <a href='/" + rausach1.ToList()[0].CAT_SEO_URL + ".html'>" + rausach1.ToList()[0].CAT_NAME + "</a>";
+                            _result = Convert_Name(str) + "  <li> <a href='/" + rausach1.ToList()[0].CAT_SEO_URL + ".html'>" + rausach1.ToList()[0].CAT_NAME + "</a></li>";
                         }
                         else
                         {
                             if (rausach1.ToList()[0].CAT_SHOWITEM > 0)
                             {
-                                _result = "  &raquo; <a href='/" + rausach1.ToList()[0].CAT_SEO_URL + ".html'>" + rausach1.ToList()[0].CAT_NAME + "</a> ";
+                                _result = "  <li> <a href='/" + rausach1.ToList()[0].CAT_SEO_URL + ".html'>" + rausach1.ToList()[0].CAT_NAME + "</a></li>";
                             }
                             else
                             {
-                                _result = "  &raquo; <a href='/" + rausach1.ToList()[0].CAT_SEO_URL + ".html'>" + rausach1.ToList()[0].CAT_NAME + "</a> ";
+                                _result = "  <li> <a href='/" + rausach1.ToList()[0].CAT_SEO_URL + ".html'>" + rausach1.ToList()[0].CAT_NAME + "</a></li>";
                             }
                         }
 
@@ -516,7 +516,7 @@ namespace Controller
                                   where r.CAT_ID == _value && r.CAT_STATUS == 1
                                   select r;
                     //s += rausach.ToList()[0] + " > ";
-                    s += "  &raquo; <a href='/" + rausach.ToList()[0].CAT_SEO_URL + ".html'>" + rausach.ToList()[0].CAT_NAME + "</a> ";
+                    s += "  <li> <a href='/" + rausach.ToList()[0].CAT_SEO_URL + ".html'>" + rausach.ToList()[0].CAT_NAME + "</a></li>";
                 }
                 return s;
             }

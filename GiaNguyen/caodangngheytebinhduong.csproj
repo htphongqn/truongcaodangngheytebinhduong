@@ -160,6 +160,7 @@
     <Content Include="UIs\MenuTop.ascx" />
     <Content Include="UIs\MostViewedRight.ascx" />
     <Content Include="UIs\NewsDetail.ascx" />
+    <Content Include="UIs\NewsHome.ascx" />
     <Content Include="UIs\Path.ascx" />
     <Content Include="UIs\Slide.ascx" />
     <Content Include="vi-vn\Ajax\Addtocart.js" />
@@ -305,6 +306,13 @@
     </Compile>
     <Compile Include="UIs\NewsDetail.ascx.designer.cs">
       <DependentUpon>NewsDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UIs\NewsHome.ascx.cs">
+      <DependentUpon>NewsHome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UIs\NewsHome.ascx.designer.cs">
+      <DependentUpon>NewsHome.ascx</DependentUpon>
     </Compile>
     <Compile Include="UIs\Path.ascx.cs">
       <DependentUpon>Path.ascx</DependentUpon>

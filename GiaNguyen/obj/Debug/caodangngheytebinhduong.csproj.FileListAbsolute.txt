@@ -7,3 +7,12 @@ H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\bin\Model.pdb
 H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\obj\Debug\caodangngheytebinhduong.csprojResolveAssemblyReference.cache
 H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\obj\Debug\caodangngheytebinhduong.dll
 H:\SoftWeb\truongcaodangngheytebinhduong\GiaNguyen\obj\Debug\caodangngheytebinhduong.pdb
+D:\ThanhPT\truongcaodangngheytebinhduong\GiaNguyen\bin\caodangngheytebinhduong.dll
+D:\ThanhPT\truongcaodangngheytebinhduong\GiaNguyen\bin\caodangngheytebinhduong.pdb
+D:\ThanhPT\truongcaodangngheytebinhduong\GiaNguyen\bin\Controller.dll
+D:\ThanhPT\truongcaodangngheytebinhduong\GiaNguyen\bin\Model.dll
+D:\ThanhPT\truongcaodangngheytebinhduong\GiaNguyen\bin\Controller.pdb
+D:\ThanhPT\truongcaodangngheytebinhduong\GiaNguyen\bin\Model.pdb
+D:\ThanhPT\truongcaodangngheytebinhduong\GiaNguyen\obj\Debug\caodangngheytebinhduong.csprojResolveAssemblyReference.cache
+D:\ThanhPT\truongcaodangngheytebinhduong\GiaNguyen\obj\Debug\caodangngheytebinhduong.dll
+D:\ThanhPT\truongcaodangngheytebinhduong\GiaNguyen\obj\Debug\caodangngheytebinhduong.pdb

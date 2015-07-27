@@ -194,10 +194,8 @@
                     Display Type
                 </th>
                 <td height="25">
-                    <asp:RadioButtonList ID="rblCatType" runat="server" RepeatColumns="5">
+                    <asp:RadioButtonList ID="rblCatType" runat="server" RepeatColumns="2">
                         <asp:ListItem Text="News" Value="0" Selected="True"></asp:ListItem>
-                        <asp:ListItem Text="LastNews" Value="3"></asp:ListItem>
-                        <asp:ListItem Text="About" Value="4"></asp:ListItem>
                         <asp:ListItem Text="Other" Value="2"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>

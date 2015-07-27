@@ -138,3 +138,9 @@ H:\SoftWeb\truongcaodangngheytebinhduong\Model\bin\Debug\Model.pdb
 H:\SoftWeb\truongcaodangngheytebinhduong\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 H:\SoftWeb\truongcaodangngheytebinhduong\Model\obj\Debug\Model.dll
 H:\SoftWeb\truongcaodangngheytebinhduong\Model\obj\Debug\Model.pdb
+D:\ThanhPT\truongcaodangngheytebinhduong\Model\bin\Debug\Model.dll.config
+D:\ThanhPT\truongcaodangngheytebinhduong\Model\bin\Debug\Model.dll
+D:\ThanhPT\truongcaodangngheytebinhduong\Model\bin\Debug\Model.pdb
+D:\ThanhPT\truongcaodangngheytebinhduong\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\ThanhPT\truongcaodangngheytebinhduong\Model\obj\Debug\Model.dll
+D:\ThanhPT\truongcaodangngheytebinhduong\Model\obj\Debug\Model.pdb

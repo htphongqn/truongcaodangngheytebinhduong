@@ -102,7 +102,7 @@ namespace Controller
             try
             {
                 if (Utils.CIntDef(Ad_Id) > 0 && !string.IsNullOrEmpty(Utils.CStrDef(Ad_Image1)))
-                    return "<a href='" + Utils.CStrDef(Ad_Url) + "' target='" + Utils.CStrDef(Ad_Target) + "'><img src='" + PathFiles.GetPathAdItems(Utils.CIntDef(Ad_Id)) + Utils.CStrDef(Ad_Image1) + "' alt='' /></a>";
+                    return "<div class='itemSlide'><a href='" + Utils.CStrDef(Ad_Url) + "' target='" + Utils.CStrDef(Ad_Target) + "'><img src='" + PathFiles.GetPathAdItems(Utils.CIntDef(Ad_Id)) + Utils.CStrDef(Ad_Image1) + "' alt='' /></a></div>";
                 return "";
             }
             catch (Exception ex)
@@ -149,7 +149,7 @@ namespace Controller
         }
         public string Getbanner(object Banner_type, object banner_field, object Banner_ID, object Banner_Image)
         {
-            return "<p id='banner_head' class='nine columns'>" + GetImagebanner(Banner_type, Banner_ID, Banner_Image) + "</p>";
+            return GetImagebanner(Banner_type, Banner_ID, Banner_Image);
         }
         public string GetImage(object Banner_type, object Banner_ID, object Banner_Image)
         {

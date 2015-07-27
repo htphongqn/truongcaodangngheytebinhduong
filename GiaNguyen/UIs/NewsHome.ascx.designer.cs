@@ -10,24 +10,15 @@
 namespace caodangngheytebinhduong.UIs {
     
     
-    public partial class Header {
+    public partial class NewsHome {
         
         /// <summary>
-        /// RpLogo control.
+        /// lblLoadNews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RpLogo;
-        
-        /// <summary>
-        /// RpBanner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RpBanner;
+        protected global::System.Web.UI.WebControls.Literal lblLoadNews;
     }
 }

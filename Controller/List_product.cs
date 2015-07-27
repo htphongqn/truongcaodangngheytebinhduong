@@ -71,7 +71,7 @@ namespace Controller
             return sotin;
         }
 
-        public IQueryable sanpham(object cat_parent_id)
+        public IQueryable sanpham(object cat_parent_id, int limit, int skip)
         {
             try
             {
@@ -79,14 +79,14 @@ namespace Controller
                 var _vMenuLevel3 = (from p in db.ESHOP_CATEGORies
                                     join a in db.ESHOP_NEWS_CATs on p.CAT_ID equals a.CAT_ID
                                     join b in db.ESHOP_NEWs on a.NEWS_ID equals b.NEWS_ID
-                                    where p.CAT_PARENT_PATH.Contains(id.ToString()) && b.NEWS_SHOWTYPE == 1 && b.NEWS_TYPE == 1 && b.NEWS_PERIOD == 3
+                                    where (p.CAT_PARENT_PATH.Contains(id.ToString()) || p.CAT_ID == id)
                                     select b).OrderByDescending(a => a.NEWS_ID).OrderByDescending(a => a.NEWS_ORDER);
 
-                return _vMenuLevel3.ToList().Count > 0 ? _vMenuLevel3.Take(4) : null;
+                return _vMenuLevel3.ToList().Count > 0 ? _vMenuLevel3.Skip(skip).Take(limit) : null;
             }
             catch (Exception ex)
             {
-                clsVproErrorHandler.HandlerError(ex);
+                //clsVproErrorHandler.HandlerError(ex);
                 return null;
             }
 

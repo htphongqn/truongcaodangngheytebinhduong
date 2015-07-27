@@ -166,3 +166,10 @@ H:\SoftWeb\truongcaodangngheytebinhduong\Controller\bin\Debug\Model.pdb
 H:\SoftWeb\truongcaodangngheytebinhduong\Controller\obj\Debug\Controller.csprojResolveAssemblyReference.cache
 H:\SoftWeb\truongcaodangngheytebinhduong\Controller\obj\Debug\Controller.dll
 H:\SoftWeb\truongcaodangngheytebinhduong\Controller\obj\Debug\Controller.pdb
+D:\ThanhPT\truongcaodangngheytebinhduong\Controller\bin\Debug\Controller.dll
+D:\ThanhPT\truongcaodangngheytebinhduong\Controller\bin\Debug\Controller.pdb
+D:\ThanhPT\truongcaodangngheytebinhduong\Controller\bin\Debug\Model.dll
+D:\ThanhPT\truongcaodangngheytebinhduong\Controller\bin\Debug\Model.pdb
+D:\ThanhPT\truongcaodangngheytebinhduong\Controller\obj\Debug\Controller.csprojResolveAssemblyReference.cache
+D:\ThanhPT\truongcaodangngheytebinhduong\Controller\obj\Debug\Controller.dll
+D:\ThanhPT\truongcaodangngheytebinhduong\Controller\obj\Debug\Controller.pdb
