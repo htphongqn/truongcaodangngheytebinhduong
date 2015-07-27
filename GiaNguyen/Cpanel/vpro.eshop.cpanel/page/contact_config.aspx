@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="contact_config.aspx.cs" Inherits="vpro.eshop.cpanel.page.contact_config" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <title>Configuration Contact | vpro.eshop</title>
+    <title>Cấu hình Footer - Sản phẩm | vpro.eshop</title>
     <script src="../tiny_mce/tiny_mce.js" type="text/javascript"></script>
     <script type="text/javascript">
         tinyMCE.init({
@@ -133,18 +133,18 @@
         </div>--%>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save</div></asp:LinkButton>
+                    Lưu</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="config_footer.aspx">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
     </div>
     <!--icon_function_parent-->
     <div id="field">
-        HTML Contact
+        Liên hệ   
         <table width="auto" border="0">
             <tr>
                 <td>
@@ -164,7 +164,7 @@
         </table>
     </div>
      <div id="field">
-        HTML Map
+        Bản đồ    
         <table width="auto" border="0">
             <tr>
                 <td>

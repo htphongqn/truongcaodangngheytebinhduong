@@ -2,7 +2,7 @@
     CodeBehind="online.aspx.cs" Inherits="vpro.eshop.cpanel.page.online" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <title>Support online | Vpro.Eshop</title>
+    <title>Hỗ trợ trực tuyến | Vpro.Eshop</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="icon_function_parent">
@@ -13,33 +13,33 @@
             </asp:LinkButton>
         </div>--%>
         <div class="icon_function_Child" id="dvDelete" runat="server">
-            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Do you want delete?');"
+            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Bạn có chắc chắn xóa không?');"
                 CausesValidation="false">
                 <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Delete</div>
+                    Xóa</div>
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSaveNew" runat="server" OnClick="lbtSaveNew_Click">
                 <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save & Add Another</div>
+                    Lưu và thêm mới</div>
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save</div></asp:LinkButton>
+                    Lưu</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="#" onclick="javascript:document.location.reload(true);">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="icon_function_Child">
             <a href="online_list.aspx">
                 <img src="../Images/ICON_RETURN.png" width="30" height="30" style="border: 0px" />
                 <div>
-                    Back</div>
+                    Quay lại</div>
             </a>
         </div>
     </div>
@@ -52,12 +52,12 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    <span class="user">*</span>Description
+                    <span class="user">*</span>Mô tả
                 </th>
                 <td>
                     <textarea id="txtDesc" runat="server" style="width: 500px;"></textarea>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Vui lòng nhập Description"
-                        Text="Vui lòng nhập Description" ControlToValidate="txtDesc" CssClass="errormes"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Vui lòng nhập Mô tả"
+                        Text="Vui lòng nhập Mô tả" ControlToValidate="txtDesc" CssClass="errormes"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr id="iUrl" runat="server">
@@ -86,11 +86,10 @@
             </tr>
             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Type
+                    Loại
                 </th>
                 <td height="25">
-                    <asp:RadioButtonList ID="rblType" runat="server" RepeatColumns="5" 
-                        AutoPostBack="True" onselectedindexchanged="rblType_SelectedIndexChanged">
+                    <asp:RadioButtonList ID="rblType" runat="server" RepeatColumns="5">
                         <asp:ListItem Selected="True" Value="0" Text="Yahoo"></asp:ListItem>                       
                         <asp:ListItem Value="1" Text="Skype"></asp:ListItem>
                         <asp:ListItem Value="2" Text="Hotline"></asp:ListItem>
@@ -104,7 +103,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Order
+                    Thứ tự
                 </th>
                 <td>
                     <input type="text" name="txtOrder" id="txtOrder" runat="server" onkeyup="this.value=formatNumeric(this.value);"
@@ -114,7 +113,7 @@
             </tr>
             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Language
+                    Ngôn ngữ
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblLanguage" runat="server" RepeatColumns="5">
@@ -132,7 +131,7 @@
             <tr id="trImage1" runat="server">
                 <th valign="top" class="left">
                     <asp:ImageButton ID="btnDelete1" runat="server" ImageUrl="../images/delete_icon.gif"
-                        BorderWidth="0" Width="13px" OnClick="btnDelete1_Click" ToolTip="Do you want delete this image?">
+                        BorderWidth="0" Width="13px" OnClick="btnDelete1_Click" ToolTip="Xóa hình minh họa này">
                     </asp:ImageButton>
                 </th>
                 <td>

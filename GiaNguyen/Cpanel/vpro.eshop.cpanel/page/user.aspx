@@ -7,33 +7,33 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="icon_function_parent">
         <div class="icon_function_Child" id="dvDelete" runat="server">
-            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Do you want delete?');"
+            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Bạn có chắc chắn xóa không?');"
                 CausesValidation="false">
                 <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Delete</div>
+                    Xóa</div>
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSaveNew" runat="server" OnClick="lbtSaveNew_Click">
                 <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save & Add Another</div>
+                    Lưu và thêm mới</div>
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save</div></asp:LinkButton>
+                    Lưu</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="#" onclick="javascript:document.location.reload(true);">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="icon_function_Child">
             <a href="group_list.aspx">
                 <img src="../Images/ICON_RETURN.png" width="30" height="30" style="border: 0px" />
                 <div>
-                    Back</div>
+                    Quay lại</div>
             </a>
         </div>
     </div>
@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    <span class="user"></span>Fullname
+                    <span class="user"></span>Họ và tên
                 </th>
                 <td>
                     <input type="text" name="txtFullName" id="txtFullName" runat="server" style="width: 300px;" />
@@ -59,17 +59,17 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    <span class="user">*</span>Username
+                    <span class="user">*</span>Tên đăng nhập
                 </th>
                 <td>
                     <input type="text" name="txtUN" id="txtUN" runat="server" style="width: 300px;" />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Vui lòng nhập username"
-                        Text="Vui lòng nhập username" ControlToValidate="txtUN" CssClass="errormes"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Vui lòng nhập tên nhóm"
+                        Text="Vui lòng nhập tên nhóm" ControlToValidate="txtUN" CssClass="errormes"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    <span class="user">*</span>Password
+                    <span class="user">*</span>Mật khẩu
                 </th>
                 <td>
                     <input type="password" name="txtPass" id="txtPass" runat="server" style="width: 300px;" autocomplete="off"/>
@@ -79,7 +79,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    <span class="user">*</span>RePassword
+                    <span class="user">*</span>Nhập lại mật khẩu
                 </th>
                 <td>
                     <input type="password" name="txtRePass" id="txtRePass" runat="server" style="width: 300px;" autocomplete="off" />
@@ -90,7 +90,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Group
+                    Nhóm
                 </th>
                 <td>
                     <asp:DropDownList ID="ddlGroup" runat="server" DataValueField="GROUP_ID" DataTextField="GROUP_NAME"
@@ -105,8 +105,8 @@
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblActive" runat="server" RepeatColumns="5">
-                        <asp:ListItem Text="No" Value="0"></asp:ListItem>
-                        <asp:ListItem Selected="True" Text="Yes" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="Không" Value="0"></asp:ListItem>
+                        <asp:ListItem Selected="True" Text="Có" Value="1"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>

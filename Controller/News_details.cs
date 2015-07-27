@@ -260,5 +260,31 @@ namespace Controller
                 throw;
             }
         }
+
+        public bool Set_Count(string _sCatSeoUrl)
+        {
+            try
+            {
+                var list = (from a in db.ESHOP_NEWs
+                            join b in db.ESHOP_NEWS_CATs on a.NEWS_ID equals b.NEWS_ID
+                            where b.ESHOP_CATEGORy.CAT_SEO_URL == _sCatSeoUrl
+                            select new { a.NEWS_SEO_URL}).ToList();
+                if (list.Count > 0)
+                {
+                    var obj = db.ESHOP_NEWs.Where(n => n.NEWS_SEO_URL == list[0].NEWS_SEO_URL).Single();
+                    if (obj != null)
+                    {
+                        obj.NEWS_COUNT += 1;
+                        db.SubmitChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

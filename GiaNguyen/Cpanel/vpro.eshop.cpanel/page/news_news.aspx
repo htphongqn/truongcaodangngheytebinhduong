@@ -61,19 +61,19 @@
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save</div></asp:LinkButton>
+                    Lưu</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="#" onclick="javascript:document.location.reload(true);">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="icon_function_Child">
             <a href="#" id="hplBack" runat="server">
                 <img src="../Images/ICON_RETURN.png" width="30" height="30" style="border: 0px" />
                 <div>
-                    Back</div>
+                    Quay lại</div>
             </a>
         </div>
     </div>

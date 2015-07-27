@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Login | Vpro.Eshop</title>
+    <title>Đăng nhập | Vpro.Eshop</title>
     <link href="../Styles/Cpanel_Login.css" rel="stylesheet" type="text/css" />
     <script language="javascript">
         function setfocus() {
@@ -19,18 +19,18 @@
     <form id="form1" runat="server">
     <div id="outer">
         <div id="logo">
-            <%--<img src="../Images/logo_t.png" alt="" style="border: none;width:250px"/>--%></div>
+            <img src="../Images/panel_c.png" alt="" style="border: none"/></div>
         <div id="content">
             <div id="login">
                 <img src="../Images/Login_header.png" width="330" height="5" />
                 <div id="title">
-                    Login</div>
+                    Đăng nhập</div>
                 <div id="information">
                     <table width="332" border="0" cellpadding="3" style="padding-top: 15px;">
 
                         <tr>
                             <td width="100" align="right" valign="middle">
-                                Username
+                                Tên đăng nhập
                             </td>
                             <td width="5">
                                 &nbsp;
@@ -46,7 +46,7 @@
                         </tr>
                         <tr>
                             <td align="right" valign="middle">
-                                Password
+                                Mật khẩu
                             </td>
                             <td>
                                 &nbsp;
@@ -69,7 +69,7 @@
                             </td>
                             <td align="left">
                                 <div id="click" class="click" style="margin-top: 10px;">
-                                    <asp:LinkButton ID="lbtLogin" runat="server" OnClick="lbtLogin_Click">Login</asp:LinkButton></div>
+                                    <asp:LinkButton ID="lbtLogin" runat="server" OnClick="lbtLogin_Click">Đăng Nhập</asp:LinkButton></div>
                             </td>
                         </tr>
                         
@@ -101,7 +101,7 @@
             </div>
         </div>
         <div id="footer">
-            Copyright © 2015 by perfectsqs.com. All rights reserved</div>
+            Copyright © 2015 by yeuthietkeweb.com. All rights reserved</div>
     </div>
     </form>
 </body>

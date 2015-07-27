@@ -22,7 +22,7 @@ namespace vpro.eshop.cpanel.page
 
         int _count = 0;
         eshopdbDataContext DB = new eshopdbDataContext();
-
+        int _type = 0;
         #endregion
 
         #region properties
@@ -49,18 +49,28 @@ namespace vpro.eshop.cpanel.page
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["type"] == "1") _type = 1;
             if (!IsPostBack)
             {
-                ucHeader.HeaderLevel1 = "News - Products";
-                ucHeader.HeaderLevel1_Url = "../page/news_list.aspx";
-                ucHeader.HeaderLevel2 = "List";
-                ucHeader.HeaderLevel2_Url = "../page/news_list.aspx";
+                if (_type == 0)
+                {
+                    ucHeader.HeaderLevel1 = "Tin tức";
+                    ucHeader.HeaderLevel1_Url = "../page/news_list.aspx?type=0";
+                    ucHeader.HeaderLevel2 = "Danh sách";
+                    ucHeader.HeaderLevel2_Url = "../page/news_list.aspx?type=0";
+                }
+                else {
+                    ucHeader.HeaderLevel1 = "Sản phẩm";
+                    ucHeader.HeaderLevel1_Url = "../page/news_list.aspx?type=1";
+                    ucHeader.HeaderLevel2 = "Danh sách";
+                    ucHeader.HeaderLevel2_Url = "../page/news_list.aspx?type=1";
+                }
                 Loadchuyenmuc();
                 SearchResult();
 
                 txtKeyword.Attributes.Add("onKeyPress", Common.getSubmitScript(lbtSearch.ClientID));
             }
-
+            ilinkNews.HRef = "../page/news.aspx?type=" + _type;
         }
 
         #endregion
@@ -75,7 +85,7 @@ namespace vpro.eshop.cpanel.page
 
         public string getLink(object obj_id)
         {
-            return "news.aspx?news_id=" + Utils.CStrDef(obj_id);
+            return "news.aspx?news_id=" + Utils.CStrDef(obj_id) + "&type=" + _type;
         }
         public string getLink_comment(object obj_id)
         {
@@ -97,7 +107,7 @@ namespace vpro.eshop.cpanel.page
         }
         public string getTypeNew(object obj_id)
         {
-            return (Utils.CIntDef(obj_id) == 0) ? "News" : ((Utils.CIntDef(obj_id) == 1) ? "Products" : "Other");
+            return (Utils.CIntDef(obj_id)==0)?"Tin tức":((Utils.CIntDef(obj_id)==1)?"Sản phẩm":"Khác");
         }
         public void Loadchuyenmuc()
         {
@@ -105,7 +115,7 @@ namespace vpro.eshop.cpanel.page
             {
                 var CatList = (
                                 from t2 in DB.ESHOP_CATEGORies
-                                where t2.CAT_RANK > 0
+                                where t2.CAT_RANK > 0 && t2.CAT_TYPE == _type
                                 select new
                                 {
                                     CAT_ID = t2.CAT_NAME == "------- Root -------" ? 0 : t2.CAT_ID,
@@ -138,7 +148,7 @@ namespace vpro.eshop.cpanel.page
                     ddlCategory.DataBind();
 
                 }
-                ListItem l = new ListItem("------ Select Category ------", "0", true);
+                ListItem l = new ListItem("------ Tất cả chuyên mục ------", "0", true);
                 l.Selected = true;
                 ddlCategory.Items.Insert(0, l);
 
@@ -155,7 +165,9 @@ namespace vpro.eshop.cpanel.page
                 string keyword =CpanelUtils.ClearUnicode(txtKeyword.Value);
 
                 var AllList = (from g in DB.ESHOP_NEWs
-                               where "" == keyword || DB.fClearUnicode(g.NEWS_TITLE).Contains(keyword) || g.NEWS_DESC.Contains(keyword)
+                               join a in DB.ESHOP_NEWS_CATs on g.NEWS_ID equals a.NEWS_ID
+                               join b in DB.ESHOP_CATEGORies on a.CAT_ID equals b.CAT_ID
+                               where ("" == keyword || DB.fClearUnicode(g.NEWS_TITLE).Contains(keyword) || g.NEWS_DESC.Contains(keyword)) && b.CAT_TYPE == _type
                                orderby g.NEWS_ID descending
                                select g);
 
@@ -186,7 +198,7 @@ namespace vpro.eshop.cpanel.page
                 var _vComment = DB.GetTable<ESHOP_NEWS_COMMENT>().Where(a=>a.NEWS_ID == _iNewsID && a.COMMENT_CHECK == 0);
                 if (_vComment.ToList().Count > 0)
                 {
-                    return Utils.CStrDef(NewsTitle) + " - <font color='#FF0000'>There is a new feedback</font>";
+                    return Utils.CStrDef(NewsTitle) + " - <font color='#FF0000'>Có phản hồi mới</font>";
                 }
                 else
                 {
@@ -226,18 +238,18 @@ namespace vpro.eshop.cpanel.page
             }
             finally
             {
-                Response.Redirect("news_list.aspx");
+                Response.Redirect("news_list.aspx?type=" + _type);
             }
         }
 
         public string getStatus(object obj_status)
         {
-            return Utils.CIntDef(obj_status) == 0 ? "Hide" : "Show";
+            return Utils.CIntDef(obj_status) == 0 ? "Ẩn" : "Hiển thị";
         }
 
         public string getLanguage(object News_Language)
         {
-            return Utils.CIntDef(News_Language) == 1 ? "Việt Nam" : "All";
+            return Utils.CIntDef(News_Language) == 1 ? "Việt Nam" : "English";
         }
 
         public string getDate(object News_PublishDate)
@@ -392,7 +404,7 @@ namespace vpro.eshop.cpanel.page
         {
             if ((((e.Item.ItemType == ListItemType.Item) | (e.Item.ItemType == ListItemType.AlternatingItem)) | (e.Item.ItemType == ListItemType.SelectedItem)))
             {
-                e.Item.Cells[9].Attributes.Add("onClick", "return confirm('Do you want to delete?');");
+                e.Item.Cells[9].Attributes.Add("onClick", "return confirm('Bạn có chắc chắn xóa?');");
             }
 
         }
@@ -452,11 +464,11 @@ namespace vpro.eshop.cpanel.page
 
 
                 strEmailBody = "<html><body>";
-                strEmailBody += "Click on the links below to see details.<br />";
+                strEmailBody += "Click vào những đường link bên dưới để xem nội dung chi tiết.<br />";
                 strEmailBody += MailContent;
                 strEmailBody += "</body></html>";
 
-                SendEmailSMTP("Please visit the website http://algervina.com", Email, "", "", strEmailBody, true, false);
+                SendEmailSMTP("Vui lòng ghé thăm website myphamhanqoucso1.com", Email, "", "", strEmailBody, true, false);
 
             }
             catch (Exception ex)
@@ -530,10 +542,11 @@ namespace vpro.eshop.cpanel.page
             try
             {
                 int id = Utils.CIntDef(ddlCategory.SelectedValue);
-                var list = (from a in DB.ESHOP_NEWs
-                            join b in DB.ESHOP_NEWS_CATs on a.NEWS_ID equals b.NEWS_ID
-                            where b.CAT_ID == id
-                            select a).OrderByDescending(n => n.NEWS_PUBLISHDATE).ToList();
+                var list = (from a in DB.ESHOP_NEWS_CATs
+                            join b in DB.ESHOP_NEWs on a.NEWS_ID equals b.NEWS_ID
+                            join c in DB.ESHOP_CATEGORies on a.CAT_ID equals c.CAT_ID
+                            where (c.CAT_ID == id || c.CAT_PARENT_PATH.Contains(id.ToString())) && c.CAT_TYPE == _type
+                            select b).OrderByDescending(n => n.NEWS_PUBLISHDATE).ToList();
                 GridItemList.DataSource = list;
                 GridItemList.DataBind();
                 GridItemList.AllowPaging = false;
@@ -542,36 +555,6 @@ namespace vpro.eshop.cpanel.page
             {
 
                 throw;
-            }
-        }
-        protected void Change_nguon(object sender, EventArgs e)
-        {
-            int N_ID = Utils.CIntDef(Ddnguon.SelectedValue, 0);
-            if (N_ID == 0)
-            {
-                var s = DB.ESHOP_NEWs.Where(n => n.NEWS_TYPE == 0).ToList();
-                if (s.Count > 0)
-                    Session["ProList"] = DataUtil.LINQToDataTable(s);
-
-                GridItemList.DataSource = s;
-                if (s.ToList().Count > GridItemList.PageSize)
-                    GridItemList.AllowPaging = true;
-                else
-                    GridItemList.AllowPaging = false;
-                GridItemList.DataBind();
-            }
-            else
-            {
-                var s = DB.ESHOP_NEWs.Where(n => n.NEWS_TYPE == 1).ToList();
-                if (s.Count > 0)
-                    Session["ProList"] = DataUtil.LINQToDataTable(s);
-
-                GridItemList.DataSource = s;
-                if (s.ToList().Count > GridItemList.PageSize)
-                    GridItemList.AllowPaging = true;
-                else
-                    GridItemList.AllowPaging = false;
-                GridItemList.DataBind();
             }
         }
     }

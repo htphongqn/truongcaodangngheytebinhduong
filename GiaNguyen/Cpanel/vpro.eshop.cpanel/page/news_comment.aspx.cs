@@ -21,6 +21,7 @@ namespace vpro.eshop.cpanel.page
 
         int _count = 0;
         int m_news_id = 0;
+        int _cat_type = 0;
         eshopdbDataContext DB = new eshopdbDataContext();
 
         #endregion
@@ -50,27 +51,27 @@ namespace vpro.eshop.cpanel.page
         protected void Page_Load(object sender, EventArgs e)
         {
             m_news_id= Utils.CIntDef(Request["news_id"]);
+            if (Request.QueryString["type"] == "1") _cat_type = 1;
 
+            hplBack.HRef = "news.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
             if (!IsPostBack)
             {
-                ucHeader.HeaderLevel1 = "News - Products";
-                ucHeader.HeaderLevel1_Url = "../page/news_list.aspx";
-                ucHeader.HeaderLevel2 = "Feedback";
-                ucHeader.HeaderLevel2_Url = "../page/news_comment.aspx?news_id=" + m_news_id;
-
-                hplBack.HRef = "../page/news.aspx?news_id=" + m_news_id;
+                ucHeader.HeaderLevel1 = _cat_type == 0 ? "Tin tức" : "Sản phẩm";
+                ucHeader.HeaderLevel1_Url = "../page/news_list.aspx?type=" + _cat_type;
+                ucHeader.HeaderLevel2 = "Thông tin phản hồi";
+                ucHeader.HeaderLevel2_Url = "../page/news_comment.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
 
                 SearchResult();
 
                 txtKeyword.Attributes.Add("onKeyPress", Common.getSubmitScript(lbtSearch.ClientID));
             }
-            hplCatNews.HRef = "news_category.aspx?news_id=" + m_news_id;
-            hplEditorHTMl.HRef = "news_editor.aspx?news_id=" + m_news_id;
-            hplNewsAtt.HRef = "news_attachment.aspx?news_id=" + m_news_id;
-            hplAlbum.HRef = "news_images.aspx?news_id=" + m_news_id;
-            bplNewsCopy.HRef = "news_copy.aspx?news_id=" + m_news_id;
-            hplComment.HRef = "news_comment.aspx?news_id=" + m_news_id;
-            //hplCatProducts.HRef = "news_news.aspx?news_id=" + m_news_id;
+            hplCatNews.HRef = "news_category.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            hplEditorHTMl.HRef = "news_editor.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            hplNewsAtt.HRef = "news_attachment.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            hplAlbum.HRef = "news_images.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            bplNewsCopy.HRef = "news_copy.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            hplComment.HRef = "news_comment.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            //hplCatProducts.HRef = "news_news.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
 
 
         }
@@ -140,7 +141,7 @@ namespace vpro.eshop.cpanel.page
             }
             finally
             {
-                Response.Redirect("news_comment.aspx?news_id=" + m_news_id);
+                Response.Redirect("news_comment.aspx?news_id=" + m_news_id + "&type=" + _cat_type);
             }
         }
 
@@ -300,7 +301,7 @@ namespace vpro.eshop.cpanel.page
         {
             if ((((e.Item.ItemType == ListItemType.Item) | (e.Item.ItemType == ListItemType.AlternatingItem)) | (e.Item.ItemType == ListItemType.SelectedItem)))
             {
-                e.Item.Cells[6].Attributes.Add("onClick", "return confirm('Do you want to delete?');");
+                e.Item.Cells[6].Attributes.Add("onClick", "return confirm('Bạn có chắc chắn xóa?');");
             }
 
         }

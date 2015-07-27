@@ -52,41 +52,6 @@ namespace Controller
                 throw;
             }
         }
-        public List<Pro_details_entity> LoadindexThuevaBan(int type, int period, int limit)
-        {
-            try
-            {
-                List<Pro_details_entity> l = new List<Pro_details_entity>();
-                var list = (from a in db.ESHOP_NEWS_CATs
-                            join b in db.ESHOP_NEWs on a.NEWS_ID equals b.NEWS_ID
-                            join c in db.ESHOP_CATEGORies on a.CAT_ID equals c.CAT_ID
-                            where (b.NEWS_PERIOD == period || b.NEWS_PERIOD == 6) && b.NEWS_TYPE == type
-                            select new { b.NEWS_ID, b.NEWS_TITLE, b.NEWS_IMAGE3, b.NEWS_PRICE1, b.NEWS_DESC, b.NEWS_SEO_URL, b.NEWS_URL, b.NEWS_ORDER_PERIOD, b.NEWS_PUBLISHDATE, c.CAT_SEO_URL }).OrderByDescending(n => n.NEWS_PUBLISHDATE).OrderByDescending(n => n.NEWS_ORDER_PERIOD).Take(limit).ToList();
-                foreach (var i in list)
-                {
-                    Pro_details_entity pro = new Pro_details_entity();
-                    pro.NEWS_ID = i.NEWS_ID;
-                    pro.NEWS_TITLE = i.NEWS_TITLE;
-                    pro.NEWS_IMAGE3 = i.NEWS_IMAGE3;
-                    pro.NEWS_DESC = i.NEWS_DESC;
-                    pro.NEWS_SEO_URL = i.NEWS_SEO_URL;
-                    pro.NEWS_URL = i.NEWS_URL;
-                    pro.NEWS_PRICE1 = Utils.CDecDef(i.NEWS_PRICE1);
-                    pro.NEWS_ORDER_PERIOD = Utils.CIntDef(i.NEWS_ORDER_PERIOD);
-                    pro.NEWS_PUBLISHDATE = Utils.CDateDef(i.NEWS_PUBLISHDATE, DateTime.Now);
-                    pro.CAT_SEO_URL = i.CAT_SEO_URL;
-                    l.Add(pro);
-                }
-
-                return l;
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
         //Categories hien tri trang chu
         public List<ESHOP_CATEGORy> Load_cate_index(int limit,int type)
         {

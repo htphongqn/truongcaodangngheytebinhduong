@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="contact.aspx.cs" Inherits="vpro.eshop.cpanel.page.contact" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <title>Contact Information | vpro.eshop</title>
+    <title>Thông tin liên hệ | vpro.eshop</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="icon_function_parent">
@@ -12,23 +12,23 @@
             </asp:LinkButton>
         </div>--%>
         <div class="icon_function_Child" id="dvDelete" runat="server">
-            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Do you want delete?');"
+            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Bạn có chắc chắn xóa không?');"
                 CausesValidation="false">
                 <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Delete</div>
+                    Xóa</div>
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="#" onclick="javascript:document.location.reload(true);">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="icon_function_Child">
             <a href="contact_list.aspx">
                 <img src="../Images/ICON_RETURN.png" width="30" height="30" style="border: 0px" />
                 <div>
-                    Back</div>
+                    Quay lại</div>
             </a>
         </div>
     </div>
@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Full name
+                    Tên
                 </th>
                 <td>
                     <input type="text" name="txtName" id="txtName" runat="server" style=" width:500px;" readonly="readonly" />
@@ -59,7 +59,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Content
+                    Nội dung
                 </th>
                 <td>
                     <textarea name="txtDesc" id="txtDesc" runat="server" style=" width:500px;"  readonly="readonly"></textarea>

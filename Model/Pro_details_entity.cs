@@ -16,6 +16,7 @@ namespace Model
         public string NEWS_FIELD1 { get; set; }
         public string NEWS_FIELD2 { get; set; }
         public int NEWS_ORDER { get; set; }
+        public int NEWS_COUNT { get; set; }
         public int NEWS_ORDER_PERIOD { get; set; }
         public decimal NEWS_PRICE1 { get; set; }
         public DateTime NEWS_PUBLISHDATE { get; set; }

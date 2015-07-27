@@ -26,12 +26,12 @@ namespace caodangngheytebinhduong.UIs
             }
 
             var list = per.Load_Online();
-            string str = "<div class='{0}'><a target='_blank'  href='{1}' title='{2}'><i class='{3}'></i>></a></div>";
+            string str = "<div class='{0}'><a target='_blank'  href='{1}' title='{2}'><i class='{3}'></i></a></div>";
             foreach (var item in list)
             {
                 switch (item.ONLINE_TYPE)
                 {
-                    case 3: lblsocial_network.Text += String.Format(str, "facebook", item.ONLINE_NICKNAME, item.ONLINE_DESC, "ifa fa-facebook-square"); break;
+                    case 3: lblsocial_network.Text += String.Format(str, "facebook", item.ONLINE_NICKNAME, item.ONLINE_DESC, "fa fa-facebook-square"); break;
                     case 4: lblsocial_network.Text += String.Format(str, "google-plus", item.ONLINE_NICKNAME, item.ONLINE_DESC, "fa fa-google-plus-square"); break;
                     case 5: lblsocial_network.Text += String.Format(str, "twitter", item.ONLINE_NICKNAME, item.ONLINE_DESC, "fa fa-twitter-square"); break;
                     case 6: lblsocial_network.Text += String.Format(str, "youtube", item.ONLINE_NICKNAME, item.ONLINE_DESC, "fa fa-youtube-square"); break;

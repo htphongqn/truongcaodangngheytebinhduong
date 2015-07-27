@@ -34,7 +34,7 @@ namespace vpro.eshop.cpanel.Components
 
         public static void createItemLanguage(ref RadioButtonList rbl)
         {
-            List<string[]> l = new List<string[]> { new string[] {"1", "Viet Nam" }, new string[] {"2", "English" } };
+            List<string[]> l = new List<string[]> { new string[] {"1", "Việt Nam" }, new string[] {"2", "English" } };
 
             rbl.DataSource = from obj in l
                              select new
@@ -54,7 +54,7 @@ namespace vpro.eshop.cpanel.Components
             List<string[]> l = new List<string[]> 
             { 
                 new string[] { "0", "Slideshow" }, 
-                new string[] { "1", "Banner Top" },
+                new string[] { "1", "Quảng cáo" },
             };
 
             rbl.DataSource = from obj in l

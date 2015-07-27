@@ -211,13 +211,13 @@ namespace vpro.eshop.cpanel.page {
         protected global::System.Web.UI.WebControls.DropDownList ddlTarget;
         
         /// <summary>
-        /// rblNewsType control.
+        /// liNameTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblNewsType;
+        protected global::System.Web.UI.WebControls.Literal liNameTitle;
         
         /// <summary>
         /// rblFeefback control.

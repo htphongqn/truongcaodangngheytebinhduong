@@ -49,7 +49,6 @@ namespace caodangngheytebinhduong.UIs
                 throw;
             }
         }
-
         private void Get_ViewMore()
         {
             try
@@ -62,7 +61,6 @@ namespace caodangngheytebinhduong.UIs
                 //clsVproErrorHandler.HandlerError(ex);
             }
         }
-
         private void Show_File_HTML()
         {
             try
@@ -71,6 +69,7 @@ namespace caodangngheytebinhduong.UIs
                 if (!string.IsNullOrEmpty(_sCat_Seo_Url))
                 {
                     _sNews_Seo_Url = ndetail.Get_News_seo_url(_sCat_Seo_Url);
+                    ndetail.Set_Count(_sCat_Seo_Url);//Insert counter
                 }
                 liHtml.Text = ndetail.Showfilehtm(_sCat_Seo_Url, _sNews_Seo_Url);
             }
@@ -79,7 +78,6 @@ namespace caodangngheytebinhduong.UIs
                 //clsVproErrorHandler.HandlerError(ex);
             }
         }
-
         public void Tinkhac()
         {
             try
@@ -103,7 +101,6 @@ namespace caodangngheytebinhduong.UIs
                 //clsVproErrorHandler.HandlerError(ex);
             }
         }
-
         public string GetLink(object News_Url, object News_Seo_Url, object cat_seo)
         {
             try

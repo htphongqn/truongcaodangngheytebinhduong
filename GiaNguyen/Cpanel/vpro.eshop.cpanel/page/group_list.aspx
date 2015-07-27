@@ -2,7 +2,7 @@
     CodeBehind="group_list.aspx.cs" Inherits="vpro.eshop.cpanel.page.group_list" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <title>List Groups | Vpro.Eshop </title>
+    <title>DS nhóm người dùng | Vpro.Eshop </title>
     <script language="javascript">
 				<!--
         function ToggleAll(e, action) {
@@ -44,23 +44,23 @@
     <div id="icon_function_parent">
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"> <img src="../Images/ICON_EDIT.jpg" width="30" height="30" style="border: 0px" /><div>
-                            Edit</div></asp:LinkButton>
+                            Chỉnh sửa</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="groups.aspx">
                 <img src="../Images/ICON_ADD.png" width="30" height="30" border="0" style="border: 0px" /><div>
-                    Add New</div>
+                    Thêm mới</div>
             </a>
         </div>
         <div class="icon_function_Child" id="dvDelete" runat="server">
-            <asp:LinkButton ID="lbtDelete" runat="server" OnClientClick="return confirm('Do you want delete?');"
+            <asp:LinkButton ID="lbtDelete" runat="server" OnClientClick="return confirm('Bạn có chắc chắn xóa không?');"
                 CausesValidation="false" OnClick="lbtDelete_Click"> <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Delete</div></asp:LinkButton>
+                    Xóa</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="group_list.aspx">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="boxinput">
@@ -106,7 +106,7 @@
                                 <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>
                                 <ItemStyle Wrap="False" CssClass="tdGridRow" HorizontalAlign="Center"></ItemStyle>
                             </asp:TemplateColumn>
-                            <asp:TemplateColumn HeaderText="Code" HeaderStyle-Width="1%" ItemStyle-Wrap="False"
+                            <asp:TemplateColumn HeaderText="Mã nhóm" HeaderStyle-Width="1%" ItemStyle-Wrap="False"
                                 HeaderStyle-CssClass="tdGridHeader" ItemStyle-CssClass="tdGridRow" HeaderStyle-Wrap="False"
                                 SortExpression="GROUP_CODE">
                                 <ItemTemplate>
@@ -117,7 +117,7 @@
                                 <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>
                                 <ItemStyle Wrap="False" CssClass="tdGridRow"></ItemStyle>
                             </asp:TemplateColumn>
-                            <asp:TemplateColumn HeaderText="Name" HeaderStyle-Width="95%" ItemStyle-Wrap="False"
+                            <asp:TemplateColumn HeaderText="Tên nhóm" HeaderStyle-Width="95%" ItemStyle-Wrap="False"
                                 HeaderStyle-CssClass="tdGridHeader" ItemStyle-CssClass="tdGridRow" HeaderStyle-Wrap="False"
                                 SortExpression="GROUP_NAME">
                                 <ItemTemplate>
@@ -132,18 +132,18 @@
                             <asp:TemplateColumn HeaderText="#" HeaderStyle-Width="1%" ItemStyle-Wrap="False"
                                 HeaderStyle-CssClass="tdGridHeader" ItemStyle-CssClass="tdGridRow" HeaderStyle-Wrap="False">
                                 <ItemTemplate>
-                                    <a href='<%# getLink(DataBinder.Eval(Container.DataItem, "GROUP_ID")) %>'>Edit
+                                    <a href='<%# getLink(DataBinder.Eval(Container.DataItem, "GROUP_ID")) %>'>Chỉnh sửa
                                     </a>
                                 </ItemTemplate>
                                 <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>
                                 <ItemStyle Wrap="False" CssClass="tdGridRow" HorizontalAlign="Center"></ItemStyle>
                             </asp:TemplateColumn>
-                            <asp:TemplateColumn HeaderText="Delete">
+                            <asp:TemplateColumn HeaderText="Xóa">
                                 <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>
                                 <ItemStyle Wrap="False" CssClass="tdGridRow" HorizontalAlign="Center"></ItemStyle>
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkbtnDel" runat="server" CommandName="Delete">
-                                <img src="../images/delete_icon.gif" title="Delete" border="0">
+                                <img src="../images/delete_icon.gif" title="Xóa" border="0">
                                     </asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateColumn>

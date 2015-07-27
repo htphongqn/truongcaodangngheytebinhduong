@@ -85,7 +85,7 @@ namespace vpro.eshop.cpanel.page
         {
             if ((((e.Item.ItemType == ListItemType.Item) | (e.Item.ItemType == ListItemType.AlternatingItem)) | (e.Item.ItemType == ListItemType.SelectedItem)))
             {
-                e.Item.Cells[8].Attributes.Add("onClick", "return confirm('Do you want delete?');");
+                e.Item.Cells[8].Attributes.Add("onClick", "return confirm('Bạn có chắc chắn xóa?');");
             }
 
         }
@@ -128,7 +128,7 @@ namespace vpro.eshop.cpanel.page
             {
                 case 0: str = "Slideshow";
                     break;
-                case 1: str = "Banner Top";
+                case 1: str = "Slide footer";
                     break;
             }
             return str;            

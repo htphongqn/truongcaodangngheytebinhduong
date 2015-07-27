@@ -69,7 +69,7 @@ public partial class Controls_ACMSTextBox_JavaScript_tiny_mce_plugins_FileManage
         }
         else
         {
-            //Response.Redirect("/Manager/Default.aspx");
+            Response.Redirect("/Manager/Default.aspx");
         }
     }
 

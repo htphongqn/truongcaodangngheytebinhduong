@@ -2,7 +2,7 @@
     CodeBehind="properties.aspx.cs" Inherits="vpro.eshop.cpanel.page.properties" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <title>Category | Vpro.Eshop </title>
+    <title>Chuyên mục | Vpro.Eshop </title>
     <script src="../Jquery/jquery.min.1.7.2.js" type="text/javascript"></script>
     <script src="../Jquery/JqueryCollapse/jquery.collapse.js" type="text/javascript"></script>
     <script language="javascript">
@@ -39,33 +39,33 @@
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child" id="dvDelete" runat="server">
-            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Do you want delete?');"
+            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Bạn có chắc chắn xóa không?');"
                 CausesValidation="false">
                 <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Delete</div>
+                    Xóa</div>
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSaveNew" runat="server" OnClick="lbtSaveNew_Click">
                 <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save & Add Another</div>
+                    Lưu và thêm mới</div>
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save</div></asp:LinkButton>
+                    Lưu</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="#" onclick="javascript:document.location.reload(true);">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="icon_function_Child">
             <a href="properties_list.aspx">
                 <img src="../Images/ICON_RETURN.png" width="30" height="30" style="border: 0px" />
                 <div>
-                    Back</div>
+                    Quay lại</div>
             </a>
         </div>
     </div>
@@ -83,7 +83,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Root
+                    Cấp cha
                 </th>
                 <td>
                     <asp:DropDownList ID="ddlCategory" runat="server" Width="500px">
@@ -97,13 +97,13 @@
                 <td>
                     <input type="text" name="txtName" id="txtName" runat="server" style="width: 500px;"
                         onkeyup="ParseText(this);" onblur="ParseText(this);" />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter the category name"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Vui lòng nhập tên chuyên mục"
                         Text="Vui lòng nhập tên nhóm" ControlToValidate="txtName" CssClass="errormes"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Description
+                    Mô tả
                 </th>
                 <td>
                     <textarea id="txtDesc" runat="server" style="width: 500px;" onkeyup="ParseDesc(this);"
@@ -112,12 +112,12 @@
             </tr>
             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Activate
+                    Hiển thị
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblStatus" runat="server" RepeatColumns="5">
-                        <asp:ListItem Text="No" Value="0"></asp:ListItem>
-                        <asp:ListItem Selected="True" Text="Yes" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="Không" Value="0"></asp:ListItem>
+                        <asp:ListItem Selected="True" Text="Có" Value="1"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>

@@ -44,15 +44,15 @@
                     Trợ giúp</div></asp:LinkButton>
         </div>--%>
         <div class="icon_function_Child">
-        <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Do you want delete?');"
+        <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Bạn có chắc chắn xóa không?');"
                 CausesValidation="false">
 				<img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-					Delete</div>
+					Xóa</div>
             </asp:LinkButton>
             </div>
          <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px" /><div>
-					Save</div></asp:LinkButton>
+					Lưu</div></asp:LinkButton>
         </div>
        
     </div>
@@ -72,7 +72,7 @@
                 </td>
                 <td>
                     <div id="click">
-                        <asp:LinkButton ID="lbtSearch" runat="server" OnClick="lbtSearch_Click">Search</asp:LinkButton>
+                        <asp:LinkButton ID="lbtSearch" runat="server" OnClick="lbtSearch_Click">Tìm kiếm </asp:LinkButton>
                     </div>
                 </td>
             </tr>
@@ -134,12 +134,12 @@
                                 <ItemStyle Wrap="False" CssClass="tdGridRow"></ItemStyle>
                             </asp:TemplateColumn>
                             
-                            <asp:TemplateColumn HeaderText="Delete">
+                            <asp:TemplateColumn HeaderText="Xóa">
                                 <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>
                                 <ItemStyle Wrap="False" CssClass="tdGridRow" HorizontalAlign="Center"></ItemStyle>
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkbtnDel" runat="server" CommandName="Delete">
-                                <img src="../images/delete_icon.gif" title="Delete" border="0">
+                                <img src="../images/delete_icon.gif" title="Xóa" border="0">
                                     </asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateColumn>

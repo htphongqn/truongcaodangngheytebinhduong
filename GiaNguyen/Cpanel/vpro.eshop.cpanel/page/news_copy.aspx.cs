@@ -19,6 +19,7 @@ namespace vpro.eshop.cpanel.page
 
         private int m_news_id = 0;
         //int _count = 0;
+        int _cat_type = 0;
         eshopdbDataContext DB = new eshopdbDataContext();
 
         #endregion
@@ -28,7 +29,9 @@ namespace vpro.eshop.cpanel.page
         protected void Page_Load(object sender, EventArgs e)
         {
             m_news_id = Utils.CIntDef(Request["news_id"]);
-            hplBack.HRef = "news.aspx?news_id=" + m_news_id;
+            if (Request.QueryString["type"] == "1") _cat_type = 1;
+
+            hplBack.HRef = "news.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
 
             if (m_news_id == 0)
             {
@@ -44,6 +47,13 @@ namespace vpro.eshop.cpanel.page
 
                 getInfo();
             }
+            hplCatNews.HRef = "news_category.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            hplEditorHTMl.HRef = "news_editor.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            hplNewsAtt.HRef = "news_attachment.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            hplAlbum.HRef = "news_images.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            bplNewsCopy.HRef = "news_copy.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            hplComment.HRef = "news_comment.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+            //hplCatProducts.HRef = "news_news.aspx?news_id=" + m_news_id;
 
         }
 
@@ -69,7 +79,7 @@ namespace vpro.eshop.cpanel.page
             {
                 var CatList = (
                                 from t2 in DB.ESHOP_CATEGORies
-                                where t2.CAT_RANK > 0
+                                where t2.CAT_RANK > 0 && t2.CAT_TYPE == _cat_type
                                 select new
                                 {
                                     CAT_ID = t2.CAT_NAME == "------- Root -------" ? 0 : t2.CAT_ID,
@@ -176,7 +186,7 @@ namespace vpro.eshop.cpanel.page
                     txtUrl.Value = G_info.ToList()[0].n.NEWS_URL;
                     ddlTarget.SelectedValue = G_info.ToList()[0].n.NEWS_TARGET;
 
-                    rblNewsType.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.NEWS_TYPE);
+                    liNameTitle.Text = get_NameTitle(Utils.CIntDef(G_info.ToList()[0].n.NEWS_TYPE));
                     rblStatus.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.NEWS_SHOWTYPE);
                     rblNewsPeriod.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.NEWS_PERIOD);
                     rblFeefback.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.NEWS_FEEDBACKTYPE);
@@ -199,12 +209,12 @@ namespace vpro.eshop.cpanel.page
                     ddlUnit2.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.UNIT_ID2);
 
                     //image
-                    if (!string.IsNullOrEmpty(G_info.ToList()[0].n.NEWS_IMAGE3))
+                    if (!string.IsNullOrEmpty(G_info.ToList()[0].n.NEWS_IMAGE1))
                     {
                         trImage1.Visible = true;
-                        Image1.Src = PathFiles.GetPathNews(m_news_id) + G_info.ToList()[0].n.NEWS_IMAGE3;
-                        hplImage1.NavigateUrl = PathFiles.GetPathNews(m_news_id) + G_info.ToList()[0].n.NEWS_IMAGE3;
-                        hplImage1.Text = G_info.ToList()[0].n.NEWS_IMAGE3;
+                        Image1.Src = PathFiles.GetPathNews(m_news_id) + G_info.ToList()[0].n.NEWS_IMAGE1;
+                        hplImage1.NavigateUrl = PathFiles.GetPathNews(m_news_id) + G_info.ToList()[0].n.NEWS_IMAGE1;
+                        hplImage1.Text = G_info.ToList()[0].n.NEWS_IMAGE1;
                     }
                 }
 
@@ -234,7 +244,7 @@ namespace vpro.eshop.cpanel.page
                     news_insert.NEWS_SEO_KEYWORD = txtSeoKeyword.Value;
                     news_insert.NEWS_SEO_DESC = txtSeoDescription.Value;
 
-                    news_insert.NEWS_TYPE = Utils.CIntDef(rblNewsType.SelectedValue);
+                    news_insert.NEWS_TYPE = _cat_type;
                     news_insert.NEWS_SHOWTYPE = Utils.CIntDef(rblStatus.SelectedValue);
                     news_insert.NEWS_PERIOD = Utils.CIntDef(rblNewsPeriod.SelectedValue);
                     news_insert.NEWS_SHOWINDETAIL = Utils.CIntDef(rblShowDetail.SelectedValue);
@@ -275,7 +285,7 @@ namespace vpro.eshop.cpanel.page
                     if (Utils.CIntDef(rblNewsAtt.SelectedValue) == 1)
                         copyAtt(_new.Single().NEWS_ID);
 
-                    strLink = string.IsNullOrEmpty(strLink) ? "news.aspx?news_id=" + _new.Single().NEWS_ID : strLink;
+                    strLink = string.IsNullOrEmpty(strLink) ? "news.aspx?news_id=" + _new.Single().NEWS_ID  + "&type=" + _cat_type : strLink;
                 }
 
             }
@@ -289,7 +299,11 @@ namespace vpro.eshop.cpanel.page
                 { Response.Redirect(strLink); }
             }
         }
-
+        public string get_NameTitle(int _type)
+        {
+            string str = _type == 1 ? "Sản phẩm" : "Tin tức";
+            return str;
+        }
         private bool CheckExitsLink(string strLink)
         {
             try
@@ -302,10 +316,9 @@ namespace vpro.eshop.cpanel.page
                 return false;
             }
             catch (Exception ex)
-            {
-                clsVproErrorHandler.HandlerError(ex);
+            {clsVproErrorHandler.HandlerError(ex);
                 return false;
-
+                
             }
 
         }
@@ -364,25 +377,25 @@ namespace vpro.eshop.cpanel.page
         {
             try
             {
-                string pathCopy = Server.MapPath(PathFiles.GetPathNews(id));
-                string pathOld = Server.MapPath(PathFiles.GetPathNews(m_news_id));
+                string pathCopy= Server.MapPath(PathFiles.GetPathNews(id)) ;
+                string pathOld=Server.MapPath(PathFiles.GetPathNews(m_news_id));
 
                 if (!Directory.Exists(pathCopy))
                 {
                     Directory.CreateDirectory(pathCopy);
                 }
 
-                var _oldNews = DB.GetTable<ESHOP_NEW>().Where(n => n.NEWS_ID == m_news_id);
+                var _oldNews=DB.GetTable<ESHOP_NEW>().Where(n=>n.NEWS_ID==m_news_id);
 
-                if (!string.IsNullOrEmpty(_oldNews.ToList()[0].NEWS_IMAGE3))
+                if(!string.IsNullOrEmpty( _oldNews.ToList()[0].NEWS_IMAGE1))
                 {
                     ////copy file
                     //if (File.Exists(pathOld + _oldNews.ToList()[0].NEWS_IMAGE1))
                     //    File.Copy(pathOld + _oldNews.ToList()[0].NEWS_IMAGE1, pathCopy + _oldNews.ToList()[0].NEWS_IMAGE1);
 
                     //update database
-                    var _copyNews = DB.GetTable<ESHOP_NEW>().Where(n => n.NEWS_ID == id);
-                    _copyNews.Single().NEWS_IMAGE3 = _oldNews.ToList()[0].NEWS_IMAGE3;
+                    var _copyNews=DB.GetTable<ESHOP_NEW>().Where(n=>n.NEWS_ID==id);
+                    _copyNews.Single().NEWS_IMAGE1=_oldNews.ToList()[0].NEWS_IMAGE1;
 
                     DB.SubmitChanges();
                 }

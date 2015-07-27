@@ -14,32 +14,32 @@
             </asp:LinkButton>
         </div>--%>
         <div class="icon_function_Child" id="dvDelete" runat="server">
-            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Do you want delete?');"
+            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Bạn có chắc chắn xóa không?');"
                 CausesValidation="false">
                 <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Delete</div>
+                    Xóa</div>
             </asp:LinkButton>
         </div>
         <%--<div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save</div></asp:LinkButton>
+                    Lưu</div></asp:LinkButton>
         </div>--%>
         <div class="icon_function_Child">
             <a href="#" onclick="javascript:document.location.reload(true);">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="icon_function_Child">
             <a href="#" id="hplBack" runat="server">
                 <img src="../Images/ICON_RETURN.png" width="30" height="30" style="border: 0px" />
                 <div>
-                    Back</div>
+                    Quay lại</div>
             </a>
         </div>
         <div class="icon_function_Child">
            <asp:LinkButton ID="Lnupload" runat="server" onclick="Lnupload_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save</div></asp:LinkButton>
+                    Lưu</div></asp:LinkButton>
         </div>
     </div>
     <!--icon_function_parent-->
@@ -54,8 +54,8 @@
                     <div id="icon_function_news">
                         <div class="icon_function_items">
                             <a href="#" id="hplCatNews" runat="server">
-                                <img src="../Images/Button_Admin/ChonChuyenMuc.png" width="15" height="15" style="border: 0px" />
-                                Categories </a>
+                                <img src="../Images/Button_Admin/ChonChuyenMuc.png" width="15" height="15" style="border: 0px" />Chọn
+                                chuyên mục </a>
                         </div>
                         <%--                        <div class="icon_function_items">
                             <a href="#" id="hplCatProducts" runat="server">
@@ -64,28 +64,28 @@
                         </div>--%>
                         <div class="icon_function_items">
                             <a href="#" id="hplEditorHTMl" runat="server">
-                                <img src="../Images/Button_Admin/c_html.png" width="15" height="15" style="border: 0px" />
-                                HTML Compose </a>
+                                <img src="../Images/Button_Admin/c_html.png" width="15" height="15" style="border: 0px" />Soạn
+                                tin HTML </a>
                         </div>
                         <div class="icon_function_items">
                             <a href="#" id="hplNewsAtt" runat="server">
-                                <img src="../Images/Button_Admin/Filedinhkem.png" width="15" height="15" style="border: 0px" />
-                                Attach File </a>
+                                <img src="../Images/Button_Admin/Filedinhkem.png" width="15" height="15" style="border: 0px" />File
+                                đính kèm </a>
                         </div>
                         <div class="icon_function_items">
                             <a href="#" id="hplAlbum" runat="server">
-                                <img src="../Images/Button_Admin/Album_Hinh.png" width="15" height="15" style="border: 0px" />
-                                Album </a>
+                                <img src="../Images/Button_Admin/Album_Hinh.png" width="15" height="15" style="border: 0px" />Album
+                                hình </a>
                         </div>
                         <div class="icon_function_items">
                             <a href="#" id="hplComment" runat="server">
-                                <img src="../Images/Button_Admin/ThongTinPhanHoi.png" width="15" height="15" style="border: 0px" />
-                                Feedback</a>
+                                <img src="../Images/Button_Admin/ThongTinPhanHoi.png" width="15" height="15" style="border: 0px" />Thông
+                                tin phản hồi</a>
                         </div>
                         <div class="icon_function_items">
                             <a href="#" id="bplNewsCopy" runat="server">
-                                <img src="../Images/Button_Admin/c_copy.png" width="15" height="15" style="border: 0px" />
-                                Copy</a>
+                                <img src="../Images/Button_Admin/c_copy.png" width="15" height="15" style="border: 0px" />Sao
+                                chép</a>
                         </div>
                     </div>
                 </td>
@@ -98,12 +98,12 @@
             <tr>
                 <td height="18" align="left" style="border-bottom: #e3e3e3 1px  solid;" class="general"
                     colspan="2">
-                    Image Infomation
+                    Thông tin hình ảnh
                 </td>
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Description
+                    Mô tả
                 </th>
                 <td>
                     <input type="text" name="txtTitle" id="txtTitle" runat="server" style="width: 500px;" />
@@ -111,7 +111,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Order
+                    Thứ tự
                 </th>
                 <td>
                     <input type="text" name="txtOrder" id="txtOrder" runat="server" onkeyup="this.value=formatNumeric(this.value);" onblur="this.value=formatNumeric(this.value);"
@@ -120,7 +120,7 @@
             </tr>
             <tr id="trUpload1" runat="server">
                 <th valign="top" class="left" nowrap>
-                    Image
+                    Hình
                 </th>
                 <td>
                      <asp:FileUpload ID="FileUpload1" runat="server" class="multi" multiple="true" />
@@ -128,9 +128,9 @@
             </tr>
             <tr id="trImage1" runat="server">
                 <th valign="top" class="left">
-                    Image<br />
+                    Hình<br />
                     <asp:ImageButton ID="btnDelete1" runat="server" ImageUrl="../images/delete_icon.gif"
-                        BorderWidth="0" Width="13px" OnClick="btnDelete1_Click" ToolTip="Do you want delete this file?">
+                        BorderWidth="0" Width="13px" OnClick="btnDelete1_Click" ToolTip="Xóa file đính kèm">
                     </asp:ImageButton>
                     
                 </th>
@@ -151,7 +151,7 @@
                 <th valign="top" class="left">
                     Hình lớn<br />
                     <asp:ImageButton ID="btnDelete2" runat="server" ImageUrl="../images/delete_icon.gif"
-                        BorderWidth="0" Width="13px" OnClick="btnDelete2_Click" ToolTip="Do you want delete this file?">
+                        BorderWidth="0" Width="13px" OnClick="btnDelete2_Click" ToolTip="Xóa file đính kèm">
                     </asp:ImageButton>
                 </th>
                 <td>
@@ -166,7 +166,7 @@
             <tr>
                 <td height="18" align="left" style="border-bottom: #e3e3e3 1px  solid;" class="general"
                     colspan="2">
-                    List
+                    Danh sách hình ảnh
                 </td>
             </tr>
             <tr>
@@ -181,7 +181,7 @@
                     <input name="txtKeyword" type="text" id="txtKeyword" runat="server" style="float: left;
                         width: 300px" />
                     <div id="click" style="float: left; margin-left: 5px;">
-                        <asp:LinkButton ID="lbtSearch" runat="server" OnClick="lbtSearch_Click">Search</asp:LinkButton>
+                        <asp:LinkButton ID="lbtSearch" runat="server" OnClick="lbtSearch_Click">Tìm kiếm </asp:LinkButton>
                     </div>
                 </td>
             </tr>
@@ -218,7 +218,7 @@
                                 <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>
                                 <ItemStyle Wrap="False" CssClass="tdGridRow"></ItemStyle>
                             </asp:TemplateColumn>
-                            <asp:TemplateColumn HeaderText="Description" HeaderStyle-Width="96%" ItemStyle-Wrap="False"
+                            <asp:TemplateColumn HeaderText="Mô tả" HeaderStyle-Width="96%" ItemStyle-Wrap="False"
                                 HeaderStyle-CssClass="tdGridHeader" ItemStyle-CssClass="tdGridRow" HeaderStyle-Wrap="False">
                                 <ItemTemplate>
                                     <a href='<%# getLink(DataBinder.Eval(Container.DataItem, "NEWS_IMG_ID")) %>'>
@@ -231,18 +231,18 @@
                             <asp:TemplateColumn HeaderText="#" HeaderStyle-Width="1%" ItemStyle-Wrap="False"
                                 HeaderStyle-CssClass="tdGridHeader" ItemStyle-CssClass="tdGridRow" HeaderStyle-Wrap="False">
                                 <ItemTemplate>
-                                    <a href='<%# getLink(DataBinder.Eval(Container.DataItem, "NEWS_IMG_ID")) %>'>Edit
+                                    <a href='<%# getLink(DataBinder.Eval(Container.DataItem, "NEWS_IMG_ID")) %>'>Chỉnh sửa
                                     </a>
                                 </ItemTemplate>
                                 <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>
                                 <ItemStyle Wrap="False" CssClass="tdGridRow" HorizontalAlign="Center"></ItemStyle>
                             </asp:TemplateColumn>
-                            <asp:TemplateColumn HeaderText="Delete">
+                            <asp:TemplateColumn HeaderText="Xóa">
                                 <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>
                                 <ItemStyle Wrap="False" CssClass="tdGridRow" HorizontalAlign="Center"></ItemStyle>
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkbtnDel" runat="server" CommandName="Delete">
-                                        <img src="../images/delete_icon.gif" title="Delete" border="0">
+                                        <img src="../images/delete_icon.gif" title="Xóa" border="0">
                                     </asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateColumn>

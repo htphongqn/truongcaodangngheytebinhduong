@@ -50,9 +50,9 @@ namespace vpro.eshop.cpanel.page
         {
             if (!IsPostBack)
             {
-                ucHeader.HeaderLevel1 = "Category";
+                ucHeader.HeaderLevel1 = "Chuyên mục";
                 ucHeader.HeaderLevel1_Url = "../page/category_list.aspx";
-                ucHeader.HeaderLevel2 = "DS Category";
+                ucHeader.HeaderLevel2 = "DS Chuyên mục";
                 ucHeader.HeaderLevel2_Url = "../page/category_list.aspx";
 
                 SearchResult();
@@ -175,13 +175,11 @@ namespace vpro.eshop.cpanel.page
             switch (Utils.CIntDef(Cat_Pos))
             {
                 case 0:
-                    str = "Menu";
+                    str = "Trên";
                     break;
-                case 1: str = "Left";
+                case 1: str = "Phải (Dự án cấp 2)";
                     break;
-                case 2: str = "Menu & Left";
-                    break;
-                case 10: str = "Other";
+                case 10: str = "Trên và Phải(Dự án cấp 2)";
                     break;
             }
             return str;            
@@ -189,7 +187,7 @@ namespace vpro.eshop.cpanel.page
 
         public string getLanguage(object Cat_Pos)
         {
-            return Utils.CIntDef(Cat_Pos) == 1 ? "Viet Nam" : "English";
+            return Utils.CIntDef(Cat_Pos) == 1 ? "Việt Nam" : "English";
         }
 
         #endregion
@@ -358,7 +356,7 @@ namespace vpro.eshop.cpanel.page
         {
             if ((((e.Item.ItemType == ListItemType.Item) | (e.Item.ItemType == ListItemType.AlternatingItem)) | (e.Item.ItemType == ListItemType.SelectedItem)))
             {
-                e.Item.Cells[7].Attributes.Add("onClick", "return confirm('Do you want delete this category?');");
+                e.Item.Cells[8].Attributes.Add("onClick", "return confirm('Bạn có chắc chắn xóa?');");
             }
 
         }

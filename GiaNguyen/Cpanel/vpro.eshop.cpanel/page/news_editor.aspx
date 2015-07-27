@@ -3,7 +3,7 @@
 
 <%@ Register Src="../ucControls/ucNewsInfo.ascx" TagName="ucNewsInfo" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <title>Compose | Vpro.Eshop</title>
+    <title>Soạn tin - Sản phẩm | Vpro.Eshop</title>
     <script src="../tiny_mce/tiny_mce.js" type="text/javascript"></script>
     <script type="text/javascript">
         tinyMCE.init({
@@ -136,19 +136,19 @@
         </div>--%>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px"/><div>
-                    Save</div></asp:LinkButton>
+                    Lưu</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="#" onclick="javascript:document.location.reload(true);">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="icon_function_Child">
             <a href="#" id="hplBack" runat="server">
                 <img src="../Images/ICON_RETURN.png" width="30" height="30" style="border: 0px" />
                 <div>
-                    Back</div>
+                    Quay lại</div>
             </a>
         </div>
     </div>
@@ -160,8 +160,8 @@
                     <div id="icon_function_news">
                         <div class="icon_function_items">
                             <a href="#" id="hplCatNews" runat="server">
-                                <img src="../Images/Button_Admin/ChonChuyenMuc.png" width="15" height="15" style="border: 0px" />
-                                Categories </a>
+                                <img src="../Images/Button_Admin/ChonChuyenMuc.png" width="15" height="15" style="border: 0px" />Chọn
+                                chuyên mục </a>
                         </div>
                         <%--                        <div class="icon_function_items">
                             <a href="#" id="hplCatProducts" runat="server">
@@ -170,28 +170,28 @@
                         </div>--%>
                         <div class="icon_function_items">
                             <a href="#" id="hplEditorHTMl" runat="server">
-                                <img src="../Images/Button_Admin/c_html.png" width="15" height="15" style="border: 0px" />
-                                HTML Compose </a>
+                                <img src="../Images/Button_Admin/c_html.png" width="15" height="15" style="border: 0px" />Soạn
+                                tin HTML </a>
                         </div>
                         <div class="icon_function_items">
                             <a href="#" id="hplNewsAtt" runat="server">
-                                <img src="../Images/Button_Admin/Filedinhkem.png" width="15" height="15" style="border: 0px" />
-                                Attach File </a>
+                                <img src="../Images/Button_Admin/Filedinhkem.png" width="15" height="15" style="border: 0px" />File
+                                đính kèm </a>
                         </div>
                         <div class="icon_function_items">
                             <a href="#" id="hplAlbum" runat="server">
-                                <img src="../Images/Button_Admin/Album_Hinh.png" width="15" height="15" style="border: 0px" />
-                                Album </a>
+                                <img src="../Images/Button_Admin/Album_Hinh.png" width="15" height="15" style="border: 0px" />Album
+                                hình </a>
                         </div>
                         <div class="icon_function_items">
                             <a href="#" id="hplComment" runat="server">
-                                <img src="../Images/Button_Admin/ThongTinPhanHoi.png" width="15" height="15" style="border: 0px" />
-                                Feedback</a>
+                                <img src="../Images/Button_Admin/ThongTinPhanHoi.png" width="15" height="15" style="border: 0px" />Thông
+                                tin phản hồi</a>
                         </div>
                         <div class="icon_function_items">
                             <a href="#" id="bplNewsCopy" runat="server">
-                                <img src="../Images/Button_Admin/c_copy.png" width="15" height="15" style="border: 0px" />
-                                Copy</a>
+                                <img src="../Images/Button_Admin/c_copy.png" width="15" height="15" style="border: 0px" />Sao
+                                chép</a>
                         </div>
                     </div>
                 </td>
@@ -203,7 +203,7 @@
             </tr>
             <tr>
                 <td height="18" align="left" style="border-bottom: #e3e3e3 1px  solid;" class="general">
-                    Edit HTML
+                    Nội dung chi tiết tin
                 </td>
             </tr>
             <tr>

@@ -2,7 +2,7 @@
     CodeBehind="config_email_list.aspx.cs" Inherits="vpro.eshop.cpanel.page.config_email_list" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <title>List Emails | vpro.eshop</title>
+    <title>Danh sách Email | vpro.eshop</title>
     <script language="javascript">
 				<!--
         function ToggleAll(e, action) {
@@ -49,11 +49,11 @@
         <div class="icon_function_Child">
             <a href="units_list.aspx">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="boxinput">
-            <input name="txtKeyword" type="text" id="txtKeyword" runat="server" placeholder="Enter a keyword"/>
+            <input name="txtKeyword" type="text" id="txtKeyword" runat="server" placeholder="Từ khóa tìm kiếm"/>
             <asp:LinkButton ID="lbtSearch" runat="server" OnClick="lbtSearch_Click">
                 <div class="divKeyword" tabindex="0" aria-label="Tìm kiếm" style="display: block;"></div>
             </asp:LinkButton>
@@ -82,7 +82,7 @@
                                 <ItemStyle HorizontalAlign="Center" CssClass="tdGridRow"></ItemStyle>
                             </asp:TemplateColumn>
                            
-                            <asp:TemplateColumn HeaderText=".No" HeaderStyle-Width="1%" ItemStyle-Wrap="False"
+                            <asp:TemplateColumn HeaderText="STT" HeaderStyle-Width="1%" ItemStyle-Wrap="False"
                                 HeaderStyle-CssClass="tdGridHeader" ItemStyle-CssClass="tdGridRow" HeaderStyle-Wrap="False"
                                 SortExpression="EMAIL_STT">
                                 <ItemTemplate>
@@ -93,7 +93,7 @@
                                 <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>
                                 <ItemStyle Wrap="False" CssClass="tdGridRow"></ItemStyle>
                             </asp:TemplateColumn>
-                            <asp:TemplateColumn HeaderText="Description" HeaderStyle-Width="95%" ItemStyle-Wrap="False"
+                            <asp:TemplateColumn HeaderText="Mô tả" HeaderStyle-Width="95%" ItemStyle-Wrap="False"
                                 HeaderStyle-CssClass="tdGridHeader" ItemStyle-CssClass="tdGridRow" HeaderStyle-Wrap="False"
                                 SortExpression="EMAIL_DESC">
                                 <ItemTemplate>
@@ -108,7 +108,7 @@
                             <asp:TemplateColumn HeaderText="#" HeaderStyle-Width="1%" ItemStyle-Wrap="False"
                                 HeaderStyle-CssClass="tdGridHeader" ItemStyle-CssClass="tdGridRow" HeaderStyle-Wrap="False">
                                 <ItemTemplate>
-                                    <a href='<%# getLink(DataBinder.Eval(Container.DataItem, "EMAIL_ID")) %>'>Edit
+                                    <a href='<%# getLink(DataBinder.Eval(Container.DataItem, "EMAIL_ID")) %>'>Chỉnh sửa
                                     </a>
                                 </ItemTemplate>
                                 <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>

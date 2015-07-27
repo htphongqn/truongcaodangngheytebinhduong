@@ -2,7 +2,7 @@
     CodeBehind="category.aspx.cs" Inherits="vpro.eshop.cpanel.page.category" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <title>Category | Vpro.Eshop </title>
+    <title>Chuyên mục | Vpro.Eshop </title>
     <script src="../Jquery/jquery.min.1.7.2.js" type="text/javascript"></script>
     <script src="../Jquery/JqueryCollapse/jquery.collapse.js" type="text/javascript"></script>
     <script language="javascript" type="text/javascript">
@@ -39,33 +39,33 @@
             </asp:LinkButton>
         </div>--%>
         <div class="icon_function_Child" id="dvDelete" runat="server">
-            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Do you want delete?');"
+            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Bạn có chắc chắn xóa không?');"
                 CausesValidation="false">
                 <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Delete</div>
+                    Xóa</div>
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSaveNew" runat="server" OnClick="lbtSaveNew_Click">
                 <img src="../Images/ICON_ADD_NEW.png" width="30" height="30" style="border: 0px" /><div>
-                    Save & Add Another</div>
+                    Lưu và thêm mới</div>
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save</div></asp:LinkButton>
+                    Lưu</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="#" onclick="javascript:document.location.reload(true);">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="icon_function_Child">
             <a href="category_list.aspx">
                 <img src="../Images/ICON_RETURN.png" width="30" height="30" style="border: 0px" />
                 <div>
-                    Back</div>
+                    Quay lại</div>
             </a>
         </div>
     </div>
@@ -83,7 +83,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Root Category
+                    Cấp cha
                 </th>
                 <td>
                     <asp:DropDownList ID="ddlCategory" runat="server" Width="500px">
@@ -92,7 +92,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Code
+                    Mã
                 </th>
                 <td>
                     <input type="text" name="txtCode" id="txtCode" runat="server" style="width: 500px;" />
@@ -108,29 +108,29 @@
             </tr>--%>
             <tr>
                 <th valign="top" class="left">
-                    <span class="user">*</span>Add Subcategory
+                    <span class="user">*</span>Chuyên mục
                 </th>
                 <td>
                     <input type="text" name="txtName" id="txtName" runat="server" style="width: 500px;"
                         onkeyup="ParseText(this);" onblur="ParseText(this);" />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter the category name"
-                        Text="Please enter the category name" ControlToValidate="txtName" CssClass="errormes"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Vui lòng nhập tên chuyên mục"
+                        Text="Vui lòng nhập tên nhóm" ControlToValidate="txtName" CssClass="errormes"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <%--            <tr>
                 <th valign="top" class="left">
-                    <span class="user">*</span>Category(Tiếng anh)
+                    <span class="user">*</span>Chuyên mục(Tiếng anh)
                 </th>
                 <td>
                     <input type="text" name="txtNameEn" id="txtNameEn" runat="server" style="width: 500px;"
                         onkeyup="ParseTextEn(this);" onblur="ParseTextEn(this);" />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please enter the category name tiếng anh"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Vui lòng nhập tên chuyên mục tiếng anh"
                         Text="Vui lòng nhập tên nhóm tiếng anh" ControlToValidate="txtNameEn" CssClass="errormes"></asp:RequiredFieldValidator>
                 </td>
             </tr>--%>
             <tr>
                 <th valign="top" class="left">
-                    Description
+                    Mô tả
                 </th>
                 <td>
                     <textarea id="txtDesc" runat="server" style="width: 500px;" onkeyup="ParseDesc(this);"
@@ -139,7 +139,7 @@
             </tr>
             <%--            <tr>
                 <th valign="top" class="left">
-                    Description(Tiếng anh)
+                    Mô tả(Tiếng anh)
                 </th>
                 <td>
                     <textarea id="txtDescEn" runat="server" style="width: 500px;" onkeyup="ParseDescEn(this);"
@@ -148,7 +148,7 @@
             </tr>--%>
             <tr>
                 <th valign="top" class="left">
-                    Link
+                    Liên kết
                 </th>
                 <td>
                     <input type="text" name="txtUrl" id="txtUrl" runat="server" style="width: 425px;" />
@@ -160,7 +160,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    News / One Page
+                    Số tin / 1 trang
                 </th>
                 <td>
                     <input type="text" name="txtpageItem" id="txtpageItem" runat="server" onblur="this.value=formatNumeric(this.value);"
@@ -169,34 +169,35 @@
             </tr>
             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Activate
+                    Hiển thị
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblStatus" runat="server" RepeatColumns="5">
-                        <asp:ListItem Text="No" Value="0"></asp:ListItem>
-                        <asp:ListItem Selected="True" Text="Yes" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="Không" Value="0"></asp:ListItem>
+                        <asp:ListItem Selected="True" Text="Có" Value="1"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>
             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Outside of homepage
+                    Hiển thị trang chủ
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblCatPeriod" runat="server" RepeatColumns="5">
-                        <asp:ListItem Selected="True" Text="No" Value="0"></asp:ListItem>
-                        <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                        <asp:ListItem Selected="True" Text="Không" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="Có" Value="1"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>
             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Display Type
+                    Kiểu hiển thị
                 </th>
                 <td height="25">
-                    <asp:RadioButtonList ID="rblCatType" runat="server" RepeatColumns="2">
-                        <asp:ListItem Text="News" Value="0" Selected="True"></asp:ListItem>
-                        <asp:ListItem Text="Other" Value="2"></asp:ListItem>
+                    <asp:RadioButtonList ID="rblCatType" runat="server" RepeatColumns="5">
+                        <asp:ListItem Text="Tin tức" Value="0" Selected="True"></asp:ListItem>
+                        <%--<asp:ListItem Text="Sản phẩm" Value="1"></asp:ListItem>--%>
+                        <asp:ListItem Text="Khác" Value="2"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>
@@ -206,49 +207,49 @@
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblAccess" runat="server" RepeatColumns="5">
-                        <asp:ListItem Selected="True" Text="No" Value="0"></asp:ListItem>
-                        <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                        <asp:ListItem Selected="True" Text="Không" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="Có" Value="1"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>--%>
             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Position
+                    Vị trí
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblPos" runat="server" RepeatColumns="5">
                         <asp:ListItem Selected="True" Text="Menu" Value="0"></asp:ListItem>
-                        <asp:ListItem Text="Left" Value="1"></asp:ListItem>
-                        <asp:ListItem Text="Menu & Left" Value="2"></asp:ListItem>
-                        <asp:ListItem Text="Other" Value="10"></asp:ListItem>
+                        <asp:ListItem Text="Chuyên mục trái" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="Menu & Chuyên mục trái" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="Khác" Value="10"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>
-            <tr style="height: 20px;">
+            <tr style="height: 20px;display:none;">
                 <th valign="top" class="left">
-                    Display Footer
+                    Hiển thị Footer
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblShowFooter" runat="server" RepeatColumns="5">
-                        <asp:ListItem Selected="True" Text="No" Value="0"></asp:ListItem>
-                        <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                        <asp:ListItem Selected="True" Text="Không" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="Có" Value="1"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>
             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Display Immediately
+                    Hiển thị tức thời
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblShowItems" runat="server" RepeatColumns="5">
-                        <asp:ListItem Selected="True" Text="No" Value="0"></asp:ListItem>
-                        <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                        <asp:ListItem Selected="True" Text="Không" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="Có" Value="1"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>
-             <tr style="height: 20px;display:none">
+             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Language
+                    Ngôn ngữ
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblLanguage" runat="server" RepeatColumns="5">
@@ -257,7 +258,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Order
+                    Thứ tự
                 </th>
                 <td>
                     <input type="text" name="txtOrder" id="txtOrder" runat="server" onblur="this.value=formatNumeric(this.value);"
@@ -266,7 +267,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Order homepage
+                    Thứ tự trang chủ
                 </th>
                 <td>
                     <input type="text" name="txtOrderPeriod" id="txtOrderPeriod" runat="server" onblur="this.value=formatNumeric(this.value);"
@@ -284,12 +285,12 @@
         </table>
         <div id="dvImage" style="width: 650px;" data-collapse>
             <h3 class="collapse">
-                Image Infomation</h3>
+                Thông tin hình ảnh</h3>
             <div>
                 <table width="auto" border="0">
                     <tr id="trUploadImage1" runat="server">
                         <th valign="top" class="left">
-                            Image
+                            Hình Chính
                         </th>
                         <td>
                             <input id="fileImage1" type="file" name="fileImage1" size="50" runat="server" style="width: 500px;">
@@ -298,7 +299,7 @@
                     <tr id="trImage1" runat="server">
                         <th valign="top" class="left">
                             <asp:ImageButton ID="btnDelete1" runat="server" ImageUrl="../images/delete_icon.gif"
-                                BorderWidth="0" Width="13px" OnClick="btnDelete1_Click" ToolTip="Do you want delete this image?">
+                                BorderWidth="0" Width="13px" OnClick="btnDelete1_Click" ToolTip="Xóa hình minh họa này">
                             </asp:ImageButton>
                         </th>
                         <td>
@@ -320,8 +321,8 @@
                         </th>
                         <td>
                             <input type="text" name="txtSeoTitle" id="txtSeoTitle" runat="server" style="width: 500px;" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter the Seo Title"
-                                Text="Please enter the Seo Title" ControlToValidate="txtSeoTitle" CssClass="errormes"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Vui lòng nhập tên nhóm"
+                                Text="Vui lòng nhập Seo Title" ControlToValidate="txtSeoTitle" CssClass="errormes"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <%--                    <tr>
@@ -331,7 +332,7 @@
                         <td>
                             <input type="text" name="txtSeoTitleEn" id="txtSeoTitleEn" runat="server" style="width: 500px;" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Vui lòng nhập tên nhóm tiếng anh"
-                                Text="Please enter the Seo Title tiếng anh" ControlToValidate="txtSeoTitleEn" CssClass="errormes"></asp:RequiredFieldValidator>
+                                Text="Vui lòng nhập Seo Title tiếng anh" ControlToValidate="txtSeoTitleEn" CssClass="errormes"></asp:RequiredFieldValidator>
                         </td>
                     </tr>--%>
                     <tr>
@@ -340,8 +341,8 @@
                         </th>
                         <td>
                             <input type="text" name="txtSeoUrl" id="txtSeoUrl" runat="server" style="width: 500px;" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter the Seo Url"
-                                Text="Please enter the Seo Url" ControlToValidate="txtSeoUrl" CssClass="errormes"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Vui lòng nhập tên nhóm"
+                                Text="Vui lòng nhập Seo Url" ControlToValidate="txtSeoUrl" CssClass="errormes"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <%--                    <tr>
@@ -351,7 +352,7 @@
                         <td>
                             <input type="text" name="txtSeoUrlEn" id="txtSeoUrlEn" runat="server" style="width: 500px;" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Vui lòng nhập tên nhóm tiếng anh"
-                                Text="Please enter the Seo Title tiếng anh" ControlToValidate="txtSeoUrlEn" CssClass="errormes"></asp:RequiredFieldValidator>
+                                Text="Vui lòng nhập Seo Url tiếng anh" ControlToValidate="txtSeoUrlEn" CssClass="errormes"></asp:RequiredFieldValidator>
                         </td>
                     </tr>--%>
                     <tr>

@@ -49,7 +49,7 @@ namespace vpro.eshop.cpanel.page
         {
             if (!IsPostBack)
             {
-                ucHeader.HeaderLevel1 = "Product - New";
+                ucHeader.HeaderLevel1 = "Sản phẩm - tin tức";
                 ucHeader.HeaderLevel1_Url = "../page/gift_list.aspx";
                 ucHeader.HeaderLevel2 = "Danh sách quà tặng";
                 ucHeader.HeaderLevel2_Url = "../page/gift_list.aspx";
@@ -77,7 +77,7 @@ namespace vpro.eshop.cpanel.page
         }
         public string getTypeNew(object obj_id)
         {
-            return (Utils.CIntDef(obj_id)==0)?"New":((Utils.CIntDef(obj_id)==1)?"Product":"Món ngon");
+            return (Utils.CIntDef(obj_id)==0)?"Tin tức":((Utils.CIntDef(obj_id)==1)?"Sản phẩm":"Món ngon");
         }
         private void SearchResult()
         {
@@ -140,12 +140,12 @@ namespace vpro.eshop.cpanel.page
 
         public string getStatus(object obj_status)
         {
-            return Utils.CIntDef(obj_status) == 0 ? "Ẩn" : "Activate";
+            return Utils.CIntDef(obj_status) == 0 ? "Ẩn" : "Hiển thị";
         }
 
         public string getLanguage(object News_Language)
         {
-            return Utils.CIntDef(News_Language) == 1 ? "Viet Nam" : "All";
+            return Utils.CIntDef(News_Language) == 1 ? "Việt Nam" : "All";
         }
 
         public string getDate(object News_PublishDate)
@@ -300,7 +300,7 @@ namespace vpro.eshop.cpanel.page
         {
             if ((((e.Item.ItemType == ListItemType.Item) | (e.Item.ItemType == ListItemType.AlternatingItem)) | (e.Item.ItemType == ListItemType.SelectedItem)))
             {
-                e.Item.Cells[9].Attributes.Add("onClick", "return confirm('Do you want delete?');");
+                e.Item.Cells[9].Attributes.Add("onClick", "return confirm('Bạn có chắc chắn xóa?');");
             }
 
         }

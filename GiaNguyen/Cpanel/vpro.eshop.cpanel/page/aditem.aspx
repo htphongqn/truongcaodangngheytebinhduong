@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="aditem.aspx.cs" Inherits="vpro.eshop.cpanel.page.aditem" %>
 
-
+<%@ Register Src="../Calendar/pickerAndCalendar.ascx" TagName="pickerAndCalendar"
+    TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <title>Banner| Vpro.Eshop</title>
+    <title>Cấu hình Banner| Vpro.Eshop</title>
     <link href="../Calendar/calendarStyle.css" rel="stylesheet" type="text/css" />
     <script language="javascript">
 				<!--
@@ -62,31 +63,31 @@
             </asp:LinkButton>
         </div>--%>
         <div class="icon_function_Child" id="dvDelete" runat="server">
-            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Do you want delete?');"
+            <asp:LinkButton ID="lbtDelete" runat="server" OnClick="lbtDelete_Click" OnClientClick="return confirm('Bạn có chắc chắn xóa không?');"
                 CausesValidation="false">
                 <img src="../Images/ICON_DELETE.png" width="30" height="30" style="border: 0px" /><div>
-                    Delete</div>
+                    Xóa</div>
             </asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSaveNew" runat="server" OnClick="lbtSaveNew_Click"><img src="../Images/ICON_ADD_NEW.png" width="30" height="30" style="border: 0px" /><div>
-                    Save & Add New</div></asp:LinkButton>
+                    Lưu & Thêm mới</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <asp:LinkButton ID="lbtSave" runat="server" OnClick="lbtSave_Click"><img src="../Images/ICON_SAVE.png" width="30" height="30" style="border: 0px" /><div>
-                    Save</div></asp:LinkButton>
+                    Lưu</div></asp:LinkButton>
         </div>
         <div class="icon_function_Child">
             <a href="#" onclick="javascript:document.location.reload(true);">
                 <img src="../Images/ICON_UPDATE.jpg" width="30" height="30" style="border: 0px" /><div>
-                    Refesh</div>
+                    Cập nhật</div>
             </a>
         </div>
         <div class="icon_function_Child">
             <a href="aditem_list.aspx">
                 <img src="../Images/ICON_RETURN.png" width="30" height="30" style="border: 0px" />
                 <div>
-                    Back</div>
+                    Quay lại</div>
             </a>
         </div>
     </div>
@@ -96,7 +97,7 @@
             <tr>
                 <td height="18" align="left" style="border-bottom: #e3e3e3 1px  solid;" class="general"
                     colspan="2">
-                    General Information
+                    Thông tin chung
                 </td>
             </tr>
             <tr>
@@ -105,17 +106,17 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    <span class="user">*</span>Code
+                    <span class="user">*</span>Mã
                 </th>
                 <td>
                     <input type="text" name="txtCode" id="txtCode" runat="server" style="width: 500px;" />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter the code"
-                        Text="Please enter the code" ControlToValidate="txtCode" CssClass="errormes"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Vui lòng nhập mã"
+                        Text="Vui lòng nhập mã" ControlToValidate="txtCode" CssClass="errormes"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Description
+                    Mô tả
                 </th>
                 <td>
                     <textarea id="txtDesc" runat="server" style="width: 500px;"></textarea>
@@ -123,7 +124,7 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Link
+                    Liên kết
                 </th>
                 <td>
                     <input type="text" name="txtUrl" id="txtUrl" runat="server" style="width: 425px;" />
@@ -135,18 +136,18 @@
             </tr>
             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Type
+                    Loại
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblBannerType" runat="server" RepeatColumns="5">
-                        <asp:ListItem Selected="True" Text="Image" Value="0"></asp:ListItem>
+                        <asp:ListItem Selected="True" Text="Hình" Value="0"></asp:ListItem>
                         <asp:ListItem Text="Flash" Value="1"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>
             <tr style="height: 20px;">
                 <th valign="top" class="left">
-                    Position
+                    Vị trí
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblAdPos" runat="server" RepeatColumns="5">
@@ -155,7 +156,7 @@
             </tr>
             <tr style="display:none;">
                 <th valign="top" class="left">
-                    <span class="user">*</span>Width
+                    <span class="user">*</span>Chiều rộng
                 </th>
                 <td>
                     <input type="text" name="txtWidth" id="txtWidth" runat="server" onblur="this.value=formatNumeric(this.value);"
@@ -164,7 +165,7 @@
             </tr>
             <tr style="display:none;">
                 <th valign="top" class="left">
-                    <span class="user">*</span>Height
+                    <span class="user">*</span>Chiều cao
                 </th>
                 <td>
                     <input type="text" name="txtHeight" id="txtHeight" runat="server" onblur="this.value=formatNumeric(this.value);"
@@ -176,16 +177,32 @@
             </tr>
             <tr>
                 <th valign="top" class="left">
-                    Order
+                    Thứ tự
                 </th>
                 <td>
                     <input type="text" name="txtOrder" id="txtOrder" runat="server" onblur="this.value=formatNumeric(this.value);"
                         maxlength="4" style="width: 500px;" value="1" />
                 </td>
             </tr>
-            <tr style="height: 20px;display:none">
+            <tr style="display:none;">
                 <th valign="top" class="left">
-                    Language
+                    <span class="user">*</span>Ngày bắt đầu
+                </th>
+                <td>
+                    <uc1:pickerAndCalendar ID="ucFromDate" runat="server" />
+                </td>
+            </tr>
+            <tr style="display:none;">
+                <th valign="top" class="left">
+                    <span class="user">*</span>Ngày kết thúc
+                </th>
+                <td>
+                    <uc1:pickerAndCalendar ID="ucToDate" runat="server" />
+                </td>
+            </tr>
+            <tr style="height: 20px;">
+                <th valign="top" class="left">
+                    Ngôn ngữ
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblLanguage" runat="server" RepeatColumns="5">
@@ -194,7 +211,7 @@
             </tr>
             <tr style="height: 20px;display:none;">
                 <th valign="top" class="left">
-                     Click Count
+                    Lượt Click
                 </th>
                 <td height="25">
                     <asp:Label ID="lblCount" runat="server" EnableViewState="false"></asp:Label>
@@ -211,7 +228,7 @@
             <tr id="trFile" runat="server">
                 <th valign="top" class="left">
                     <asp:ImageButton ID="btnDelete1" runat="server" ImageUrl="../images/delete_icon.gif"
-                        BorderWidth="0" Width="13px" OnClick="btnDelete1_Click" ToolTip="Do you want delete this file?">
+                        BorderWidth="0" Width="13px" OnClick="btnDelete1_Click" ToolTip="Xóa file đính kèm">
                     </asp:ImageButton>
                 </th>
                 <td>
@@ -226,7 +243,7 @@
             <tr>
                 <td height="18" align="left" style="border-bottom: #e3e3e3 1px  solid;" class="general"
                     colspan="2">
-                    Select category
+                    Chọn chuyên mục cho Banner
                 </td>
             </tr>
             <tr>
@@ -265,7 +282,7 @@
                                     <HeaderStyle Wrap="False" CssClass="tdGridHeader" Width="1%"></HeaderStyle>
                                     <ItemStyle Wrap="False" CssClass="tdGridRow" HorizontalAlign="Center"></ItemStyle>
                                 </asp:TemplateColumn>
-                                <asp:TemplateColumn HeaderText="Categories" HeaderStyle-Width="97%" ItemStyle-Wrap="False"
+                                <asp:TemplateColumn HeaderText="Phân quyền chuyên mục" HeaderStyle-Width="97%" ItemStyle-Wrap="False"
                                     HeaderStyle-CssClass="tdGridHeader" ItemStyle-CssClass="tdGridRow" HeaderStyle-Wrap="False">
                                     <ItemTemplate>
                                         <%# DataBinder.Eval(Container.DataItem, "CAT_NAME")%>

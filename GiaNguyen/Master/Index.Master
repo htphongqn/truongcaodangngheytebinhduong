@@ -16,13 +16,13 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="/vi-vn/stylesheet" type="text/css" href="/vi-vn/styles/css.css"/>
-    <link rel="/vi-vn/stylesheet" type="text/css" href="/vi-vn/styles/styles.css"/>
-    <link rel="/vi-vn/stylesheet" type="text/css" href="/vi-vn/styles/navx.css">
+    <link rel="stylesheet" type="text/css" href="/vi-vn/styles/css.css"/>
+    <link rel="stylesheet" type="text/css" href="/vi-vn/styles/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="/vi-vn/styles/navx.css">
     <script type="text/javascript" src="/vi-vn/scripts/jquery.min.1.11.2.js"></script>
-    <link rel="/vi-vn/stylesheet" href="/vi-vn/styles/nivo-slider.css" type="text/css" media="screen" />
-    <link rel="/vi-vn/stylesheet" type="text/css" href="/vi-vn/styles/font-awesome.min.css">
-    <link rel="/vi-vn/stylesheet" type="text/css" href="/vi-vn/styles/bxslider.css">
+    <link rel="stylesheet" href="/vi-vn/styles/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/vi-vn/styles/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/vi-vn/styles/bxslider.css">
     <script type="text/javascript" src="/vi-vn/scripts/bxslider.js"></script>
 </head>
 <body>

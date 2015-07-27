@@ -19,8 +19,7 @@ namespace vpro.eshop.cpanel.page
         #region Declare
 
         private int m_news_id = 0;
-        int _count = 0;
-        int _count1 = 0;
+        int _cat_type = 0;
         eshopdbDataContext DB = new eshopdbDataContext();
 
         #endregion
@@ -30,7 +29,8 @@ namespace vpro.eshop.cpanel.page
         protected void Page_Load(object sender, EventArgs e)
         {
             m_news_id = Utils.CIntDef(Request["news_id"]);
-
+            if (Request.QueryString["type"] == "1") _cat_type = 1;
+            checkType();
             if (m_news_id == 0)
             {
                 dvDelete.Visible = false;
@@ -40,21 +40,21 @@ namespace vpro.eshop.cpanel.page
             }
             else
             {
-                hplCatNews.HRef = "news_category.aspx?news_id=" + m_news_id;
-                hplEditorHTMl.HRef = "news_editor.aspx?news_id=" + m_news_id;
-                hplNewsAtt.HRef = "news_attachment.aspx?news_id=" + m_news_id;
-                hplAlbum.HRef = "news_images.aspx?news_id=" + m_news_id;
-                bplNewsCopy.HRef = "news_copy.aspx?news_id=" + m_news_id;
-                hplComment.HRef = "news_comment.aspx?news_id=" + m_news_id;
+                hplCatNews.HRef = "news_category.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+                hplEditorHTMl.HRef = "news_editor.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+                hplNewsAtt.HRef = "news_attachment.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+                hplAlbum.HRef = "news_images.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+                bplNewsCopy.HRef = "news_copy.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
+                hplComment.HRef = "news_comment.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
                 //hplCatProducts.HRef = "news_news.aspx?news_id=" + m_news_id;
             }
-
+            hplReturn.HRef = "news_list.aspx?type=" + _cat_type;
             if (!IsPostBack)
             {
-                ucHeader.HeaderLevel1 = "News - Products";
-                ucHeader.HeaderLevel1_Url = "../page/news_list.aspx";
-                ucHeader.HeaderLevel2 = "Add/Update";
-                ucHeader.HeaderLevel2_Url = "../page/news.aspx";
+                ucHeader.HeaderLevel1 = _cat_type == 0 ? "Tin tức" : "Sản phẩm";
+                ucHeader.HeaderLevel1_Url = "../page/news_list.aspx?type=" + _cat_type;
+                ucHeader.HeaderLevel2 = _cat_type == 0 ? "Thêm mới/Cập nhật Tin tức" : "Thêm mới/Cập nhật Sản phẩm";
+                ucHeader.HeaderLevel2_Url = "../page/news.aspx?type=" + _cat_type;
                 getInfo();
                 LoadCategoryParent();
                 //LoadColor();
@@ -79,7 +79,7 @@ namespace vpro.eshop.cpanel.page
             if (CheckExitsLink(txtSeoUrl.Value))
                 lblError.Text = "Đã tồn tại Seo Url, vui lòng nhập Seo Url khác cho chuyên mục.";
             else
-                SaveInfo("news.aspx");
+                SaveInfo("news.aspx?type=" + _cat_type);
         }
 
         protected void lbtDelete_Click(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace vpro.eshop.cpanel.page
             {
                 var CatList = (
                                 from t2 in DB.ESHOP_CATEGORies
-                                where t2.CAT_RANK > 0
+                                where t2.CAT_RANK > 0 && t2.CAT_TYPE == _cat_type
                                 select new
                                 {
                                     CAT_ID = t2.CAT_NAME == "------- Root -------" ? 0 : t2.CAT_ID,
@@ -250,13 +250,13 @@ namespace vpro.eshop.cpanel.page
                     //txtPrice.Value = Utils.CStrDef(Utils.CIntDef(G_info.ToList()[0].n.NEWS_PRICE1));
                     //txtPrice2.Value = Utils.CStrDef(Utils.CIntDef(G_info.ToList()[0].n.NEWS_PRICE2));
                     //drNhanHieu.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.UNIT_ID1);
-                   
-                    rblNewsType.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.NEWS_TYPE);
+
+                    liTitleNew.Text = get_NameTitle(Utils.CIntDef(G_info.ToList()[0].n.NEWS_TYPE));
                     rblStatus.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.NEWS_SHOWTYPE);
                     rblNewsPeriod.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.NEWS_PERIOD);
-                    //txtField1.Value = Utils.CStrDef(G_info.ToList()[0].n.NEWS_FIELD1);
+                    txtField1.Value = Utils.CStrDef(G_info.ToList()[0].n.NEWS_FIELD1);
                     //txtField2.Value = Utils.CStrDef(G_info.ToList()[0].n.NEWS_FIELD2);
-                    //rblFeefback.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.NEWS_FEEDBACKTYPE);
+                    rblFeefback.SelectedValue = Utils.CStrDef(G_info.ToList()[0].n.NEWS_FEEDBACKTYPE);
                     txtOrder.Value = Utils.CStrDef(G_info.ToList()[0].n.NEWS_ORDER, "1");
                     txtOrderPeriod.Value = Utils.CStrDef(G_info.ToList()[0].n.NEWS_ORDER_PERIOD, "1");
                     txtCount.Value = Utils.CStrDef(G_info.ToList()[0].n.NEWS_COUNT);
@@ -334,6 +334,7 @@ namespace vpro.eshop.cpanel.page
                     //trImage1.Visible = false;
                     //trUploadImage2.Visible = true;
                     //trImage2.Visible = false;
+                    liTitleNew.Text = get_NameTitle(_cat_type);
                     trUploadImage3.Visible = true;
                     trImage3.Visible = false;
                     LoadCategoryParent();
@@ -406,7 +407,7 @@ namespace vpro.eshop.cpanel.page
                     News_Image3 = hplImage3.Text;
                 }
 
-                int _iType = Utils.CIntDef(rblNewsType.SelectedValue);
+                int _iType = _cat_type;
 
                 if (_iType == 0 || _iType == 2)
                 {
@@ -426,13 +427,13 @@ namespace vpro.eshop.cpanel.page
                         news_insert.NEWS_SEO_DESC = txtSeoDescription.Value;
 
                         //news_insert.UNIT_ID1 = Utils.CIntDef(drNhanHieu.SelectedValue);
-                        news_insert.NEWS_TYPE = Utils.CIntDef(rblNewsType.SelectedValue);
+                        news_insert.NEWS_TYPE = _cat_type;
                         news_insert.NEWS_SHOWTYPE = Utils.CIntDef(rblStatus.SelectedValue);
                         news_insert.NEWS_PERIOD = Utils.CIntDef(rblNewsPeriod.SelectedValue);
-                        //news_insert.NEWS_FIELD1 = Utils.CStrDef(txtField1.Value);
+                        news_insert.NEWS_FIELD1 = Utils.CStrDef(txtField1.Value);
                         //news_insert.NEWS_FIELD2 = Utils.CStrDef(txtField2.Value);
-                        //news_insert.NEWS_SHOWINDETAIL = Utils.CIntDef(rblShowDetail.SelectedValue);
-                        //news_insert.NEWS_FEEDBACKTYPE = Utils.CIntDef(rblFeefback.SelectedValue);
+                        news_insert.NEWS_SHOWINDETAIL = Utils.CIntDef(rblShowDetail.SelectedValue);
+                        news_insert.NEWS_FEEDBACKTYPE = Utils.CIntDef(rblFeefback.SelectedValue);
                         news_insert.NEWS_COUNT = Utils.CIntDef(txtCount.Value);
                         news_insert.NEWS_ORDER = Utils.CIntDef(txtOrder.Value);
                         news_insert.NEWS_ORDER_PERIOD = Utils.CIntDef(txtOrderPeriod.Value);
@@ -457,7 +458,7 @@ namespace vpro.eshop.cpanel.page
                         m_news_id = _new.Single().NEWS_ID;
                         SaveNewsCategory(_new.Single().NEWS_ID);
 
-                        strLink = string.IsNullOrEmpty(strLink) ? "news.aspx?news_id=" + m_news_id : strLink;
+                        strLink = string.IsNullOrEmpty(strLink) ? "news.aspx?news_id=" + m_news_id + "&type=" + _cat_type : strLink;
                     }
                     else
                     {
@@ -475,14 +476,14 @@ namespace vpro.eshop.cpanel.page
                             c_update.ToList()[0].NEWS_SEO_KEYWORD = txtSeoKeyword.Value;
                             c_update.ToList()[0].NEWS_SEO_DESC = txtSeoDescription.Value;
 
-                           
-                            c_update.ToList()[0].NEWS_TYPE = Utils.CIntDef(rblNewsType.SelectedValue);
+
+                            c_update.ToList()[0].NEWS_TYPE = _cat_type;
                             c_update.ToList()[0].NEWS_SHOWTYPE = Utils.CIntDef(rblStatus.SelectedValue);
                             c_update.ToList()[0].NEWS_PERIOD = Utils.CIntDef(rblNewsPeriod.SelectedValue);
-                            //c_update.ToList()[0].NEWS_FIELD1 = Utils.CStrDef(txtField1.Value);
+                            c_update.ToList()[0].NEWS_FIELD1 = Utils.CStrDef(txtField1.Value);
                             //c_update.ToList()[0].NEWS_FIELD2 = Utils.CStrDef(txtField2.Value);
-                            //c_update.ToList()[0].NEWS_SHOWINDETAIL = Utils.CIntDef(rblShowDetail.SelectedValue);
-                            //c_update.ToList()[0].NEWS_FEEDBACKTYPE = Utils.CIntDef(rblFeefback.SelectedValue);
+                            c_update.ToList()[0].NEWS_SHOWINDETAIL = Utils.CIntDef(rblShowDetail.SelectedValue);
+                            c_update.ToList()[0].NEWS_FEEDBACKTYPE = Utils.CIntDef(rblFeefback.SelectedValue);
                             c_update.ToList()[0].NEWS_COUNT = Utils.CIntDef(txtCount.Value);
                             c_update.ToList()[0].NEWS_ORDER = Utils.CIntDef(txtOrder.Value);
                             c_update.ToList()[0].NEWS_ORDER_PERIOD = Utils.CIntDef(txtOrderPeriod.Value);
@@ -497,7 +498,7 @@ namespace vpro.eshop.cpanel.page
 
                             DB.SubmitChanges();
                             //SaveNewsColor();
-                            strLink = string.IsNullOrEmpty(strLink) ? "news_list.aspx" : strLink;
+                            strLink = string.IsNullOrEmpty(strLink) ? "news_list.aspx?type=" + _cat_type : strLink;
                         }
                     }
 
@@ -572,14 +573,14 @@ namespace vpro.eshop.cpanel.page
                             news_insert.NEWS_SEO_DESC = txtSeoDescription.Value;
 
                             //news_insert.UNIT_ID1 = Utils.CIntDef(drNhanHieu.SelectedValue);
-               
-                            news_insert.NEWS_TYPE = Utils.CIntDef(rblNewsType.SelectedValue);
+
+                            news_insert.NEWS_TYPE = _cat_type;
                             news_insert.NEWS_SHOWTYPE = Utils.CIntDef(rblStatus.SelectedValue);
                             news_insert.NEWS_PERIOD = Utils.CIntDef(rblNewsPeriod.SelectedValue);
-                            //news_insert.NEWS_FIELD1 = Utils.CStrDef(txtField1.Value);
+                            news_insert.NEWS_FIELD1 = Utils.CStrDef(txtField1.Value);
                             //news_insert.NEWS_FIELD2 = Utils.CStrDef(txtField2.Value);
-                            //news_insert.NEWS_SHOWINDETAIL = Utils.CIntDef(rblShowDetail.SelectedValue);
-                            //news_insert.NEWS_FEEDBACKTYPE = Utils.CIntDef(rblFeefback.SelectedValue);
+                            news_insert.NEWS_SHOWINDETAIL = Utils.CIntDef(rblShowDetail.SelectedValue);
+                            news_insert.NEWS_FEEDBACKTYPE = Utils.CIntDef(rblFeefback.SelectedValue);
                             news_insert.NEWS_COUNT = Utils.CIntDef(txtCount.Value);
                             news_insert.NEWS_ORDER = Utils.CIntDef(txtOrder.Value);
                             news_insert.NEWS_ORDER_PERIOD = Utils.CIntDef(txtOrderPeriod.Value);
@@ -610,7 +611,7 @@ namespace vpro.eshop.cpanel.page
                             m_news_id = _new.Single().NEWS_ID;
                             SaveNewsCategory(_new.Single().NEWS_ID);
 
-                            strLink = string.IsNullOrEmpty(strLink) ? "news.aspx?news_id=" + m_news_id : strLink;
+                            strLink = string.IsNullOrEmpty(strLink) ? "news.aspx?news_id=" + m_news_id + "&type=" + _cat_type : strLink;
                         }
                         else
                         {
@@ -628,14 +629,14 @@ namespace vpro.eshop.cpanel.page
                                 c_update.ToList()[0].NEWS_SEO_KEYWORD = txtSeoKeyword.Value;
                                 c_update.ToList()[0].NEWS_SEO_DESC = txtSeoDescription.Value;
 
-                   
-                                c_update.ToList()[0].NEWS_TYPE = Utils.CIntDef(rblNewsType.SelectedValue);
+
+                                c_update.ToList()[0].NEWS_TYPE = _cat_type;
                                 c_update.ToList()[0].NEWS_SHOWTYPE = Utils.CIntDef(rblStatus.SelectedValue);
                                 c_update.ToList()[0].NEWS_PERIOD = Utils.CIntDef(rblNewsPeriod.SelectedValue);
-                                //c_update.ToList()[0].NEWS_FIELD1 = Utils.CStrDef(txtField1.Value);
+                                c_update.ToList()[0].NEWS_FIELD1 = Utils.CStrDef(txtField1.Value);
                                 //c_update.ToList()[0].NEWS_FIELD2 = Utils.CStrDef(txtField2.Value);
-                                //c_update.ToList()[0].NEWS_SHOWINDETAIL = Utils.CIntDef(rblShowDetail.SelectedValue);
-                                //c_update.ToList()[0].NEWS_FEEDBACKTYPE = Utils.CIntDef(rblFeefback.SelectedValue);
+                                c_update.ToList()[0].NEWS_SHOWINDETAIL = Utils.CIntDef(rblShowDetail.SelectedValue);
+                                c_update.ToList()[0].NEWS_FEEDBACKTYPE = Utils.CIntDef(rblFeefback.SelectedValue);
                                 c_update.ToList()[0].NEWS_COUNT = Utils.CIntDef(txtCount.Value);
                                 c_update.ToList()[0].NEWS_ORDER = Utils.CIntDef(txtOrder.Value);
                                 c_update.ToList()[0].NEWS_ORDER_PERIOD = Utils.CIntDef(txtOrderPeriod.Value);
@@ -646,7 +647,7 @@ namespace vpro.eshop.cpanel.page
                                 c_update.ToList()[0].NEWS_IMAGE3 = News_Image3;
                                 DB.SubmitChanges();
                                 //SaveNewsColor();
-                                strLink = string.IsNullOrEmpty(strLink) ? "news_list.aspx" : strLink;
+                                strLink = string.IsNullOrEmpty(strLink) ? "news_list.aspx?type=" + _cat_type : strLink;
                             }
                         }
 
@@ -736,7 +737,7 @@ namespace vpro.eshop.cpanel.page
                     Directory.Delete(fullpath);
                 }
 
-                strLink = "news_list.aspx";
+                strLink = "news_list.aspx?type=" + _cat_type;
 
             }
             catch (Exception ex)
@@ -756,9 +757,10 @@ namespace vpro.eshop.cpanel.page
                 System.IO.File.Delete(f);
         }
 
-        public string getLink(object GroupId)
+        public string get_NameTitle(int _type)
         {
-            return "news.aspx?news_id=" + Utils.CStrDef(GroupId);
+            string str = _type == 1 ? "Sản phẩm" : "Tin tức";
+            return str;
         }
 
         private bool CheckExitsLink(string strLink)
@@ -842,7 +844,7 @@ namespace vpro.eshop.cpanel.page
                         if (File.Exists(imagePath))
                             File.Delete(imagePath);
 
-                        strLink = "news.aspx?news_id=" + m_news_id;
+                        strLink = "news.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
                     }
                 }
             }
@@ -875,7 +877,7 @@ namespace vpro.eshop.cpanel.page
                         if (File.Exists(imagePath))
                             File.Delete(imagePath);
 
-                        strLink = "news.aspx?news_id=" + m_news_id;
+                        strLink = "news.aspx?news_id=" + m_news_id + "&type=" + _cat_type;
                     }
                 }
             }
@@ -915,11 +917,11 @@ namespace vpro.eshop.cpanel.page
                 return "99";
             }
         }
-        protected void rblNewsType_SelectedIndexChanged(object sender, EventArgs e)
+        protected void checkType()
         {
             try
             {
-                int _iType = Utils.CIntDef(rblNewsType.SelectedValue);
+                int _iType = _cat_type;
                 switch (_iType)
                 {
                     case 0:

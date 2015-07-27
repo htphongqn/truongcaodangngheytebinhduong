@@ -24,7 +24,7 @@ namespace caodangngheytebinhduong.UIs
 
         public void Loadlist_news()
         {
-            var list = index.Loadindex(0, 1, 8);
+            var list = index.Loadindex(0, 2, 8);
             int count = 0;
             string str = "";
             count = list.Count;
