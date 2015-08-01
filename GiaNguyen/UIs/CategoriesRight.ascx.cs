@@ -27,7 +27,7 @@ namespace caodangngheytebinhduong.UIs
         {
             try
             {
-                var list = per.Loadmenu(1, 10, 1);
+                var list = per.Loadmenu(1, 10);
                 RpList.DataSource = list;
                 RpList.DataBind();
             }

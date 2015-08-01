@@ -28,6 +28,19 @@ namespace Controller
                 throw;
             }
         }
+        public List<ESHOP_CATEGORy> Loadmenu(int position, int limit)
+        {
+            try
+            {
+                var list = db.ESHOP_CATEGORies.Where(n => n.CAT_STATUS == 1 && n.CAT_POSITION == position).OrderByDescending(n => n.CAT_ORDER).Take(limit).ToList();
+                return list;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public List<ESHOP_CATEGORy> LoadmenuFooter(int footer, int limit)
         {
             try

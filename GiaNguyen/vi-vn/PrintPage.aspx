@@ -41,7 +41,7 @@
         <asp:Literal ID="ltrHtml" runat="server"></asp:Literal>
       </div>
     </div>
-    <p align="center">© 2015 Tran Dinh My - <a href="http://www.dangcapviet.vn" target="_blank" tabindex="0"> Thiết kế website</a> bởi <a href="http://dangcapviet.vn" title="Website đẳng cấp việt" target="_blank" tabindex="0"> Đẳng Cấp Việt</a></p>
+    <p align="center">© 2015 http://www.binhduongvcm.edu.vn - <a href="http://www.yeuthietkeweb.com" target="_blank" tabindex="0"> Thiết kế website</a> bởi <a href="http://www.yeuthietkeweb.com" title="http://www.yeuthietkeweb.com" target="_blank" tabindex="0"> http://www.yeuthietkeweb.com</a></p>
   </div>
 </form>
 </body>

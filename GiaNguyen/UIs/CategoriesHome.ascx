@@ -13,7 +13,7 @@
             <div class="inner-item-media">
                 <div class="content-media">
                     <img class="img-media-st" alt="<%# Eval("NEWS_TITLE") %>" src="<%# GetImageT(Eval("NEWS_ID"),Eval("NEWS_IMAGE3")) %>" >
-                <h2 class="tt-it-news"><a title="<%# Eval("NEWS_TITLE") %>"><%# Eval("NEWS_TITLE") %></a></h2>
+                <h2 class="tt-it-news"><a href="<%# GetLinkNews(Eval("NEWS_URL"),Eval("NEWS_SEO_URL"),1) %>"><%# Eval("NEWS_TITLE") %></a></h2>
                 <%# Eval("NEWS_DESC") %></div>
             </div>
             </div>

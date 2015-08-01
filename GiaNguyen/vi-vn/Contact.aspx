@@ -21,7 +21,7 @@
                 <div class="frm_group">
                   <div class="lbl"> Họ và tên: <span class="red">*</span></div>
                   <div class="input_group">
-                    <input class="form-control" placeholder="Xin nhập họ và tên!" type="text" id="txtName" runat="server" class="form-control">
+                    <input class="form-control" placeholder="Xin nhập họ và tên!" type="text" id="txtName" runat="server">
                     <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ErrorMessage="Xin nhập họ và tên!"
                         ControlToValidate="txtName" Display="None" ForeColor="Red" ValidationGroup="G40">*</asp:RequiredFieldValidator>
                   </div>
@@ -67,7 +67,7 @@
                   <div class="input_group  ">
                     <div class="ct-submit"></a>
                         <asp:LinkButton ID="btnSubmit" runat="server" ValidationGroup="G40" 
-                            onclick="btnSubmit_Click">&nbsp;</asp:LinkButton>
+                            onclick="btnSubmit_Click">Gửi</asp:LinkButton>
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ShowMessageBox="True"
                             ShowSummary="False" ValidationGroup="G40" />
                     </div>

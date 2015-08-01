@@ -218,10 +218,8 @@
                 </th>
                 <td height="25">
                     <asp:RadioButtonList ID="rblPos" runat="server" RepeatColumns="5">
-                        <asp:ListItem Selected="True" Text="Menu" Value="0"></asp:ListItem>
-                        <asp:ListItem Text="Chuyên mục trái" Value="1"></asp:ListItem>
-                        <asp:ListItem Text="Menu & Chuyên mục trái" Value="2"></asp:ListItem>
-                        <asp:ListItem Text="Khác" Value="10"></asp:ListItem>
+                        <asp:ListItem Selected="True" Text="Trên" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="Phải" Value="1"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>
@@ -247,7 +245,7 @@
                     </asp:RadioButtonList>
                 </td>
             </tr>
-             <tr style="height: 20px;">
+             <tr style="height: 20px;display:none">
                 <th valign="top" class="left">
                     Ngôn ngữ
                 </th>

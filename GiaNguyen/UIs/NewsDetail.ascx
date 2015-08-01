@@ -14,10 +14,23 @@
         <p class="file"><i class="fa fa-file-pdf-o"></i><a>Công văn số 4280/TCT-CS</a></p>
     </div>
     </div>
-    <div class="wmn toolPost fleft">
-        <span class="fleft"><i class="fa fa-arrow-circle-o-left"></i> <a href="news.html">Quay lại</a></span>
-        <a href="#" id="hplPrint" target="_blank" runat="server" ><i class="fa fa-print"></i>Bản In</a>
-        <a href="#" id="hplFeedback" runat="server" ><i class="fa fa-share-alt"></i>Phản hồi</a> 
+    <div class="wmn fleft">
+        <span class="fleft">
+            <div class="addthis_toolbox addthis_default_style like_face">
+                <a class="addthis_button_preferred_1"></a><a class="addthis_button_preferred_2">
+                </a><a class="addthis_button_preferred_3"></a><a class="addthis_button_preferred_4">
+                </a><a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style">
+                </a>
+                <script type="text/javascript">
+                    var addthis_config = { "data_track_addressbar": true };
+                    addthis_config = addthis_config || {};
+                    addthis_config.data_track_addressbar = false;
+                </script>
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50d418ab2d45f0aa"></script>
+            </div>
+        </span>
+        <a style="float:right;margin-bottom:10px" href="#" id="hplPrint" target="_blank" runat="server" ><i class="fa fa-print"></i>Bản In</a>
+        <%--<a href="#" id="hplFeedback" runat="server" ><i class="fa fa-share-alt"></i>Phản hồi</a> --%>
     </div>
     <div class="wmn other-news-dtl" id="dvOtherNews" runat="server">
     <div class="boxmn b-cate">

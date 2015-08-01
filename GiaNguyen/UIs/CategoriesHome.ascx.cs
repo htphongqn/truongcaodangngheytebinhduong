@@ -29,7 +29,7 @@ namespace caodangngheytebinhduong.UIs
         {
             try
             {
-                var list = index.Load_cate_index(5, 1);
+                var list = index.Load_cate_index_all(5);
                 Rpmenu1.DataSource = list;
                 Rpmenu1.DataBind();
             }

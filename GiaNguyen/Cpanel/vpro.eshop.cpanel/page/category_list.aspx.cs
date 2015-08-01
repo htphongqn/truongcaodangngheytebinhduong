@@ -177,9 +177,7 @@ namespace vpro.eshop.cpanel.page
                 case 0:
                     str = "Trên";
                     break;
-                case 1: str = "Phải (Dự án cấp 2)";
-                    break;
-                case 10: str = "Trên và Phải(Dự án cấp 2)";
+                case 1: str = "Phải";
                     break;
             }
             return str;            

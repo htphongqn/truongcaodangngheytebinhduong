@@ -24,7 +24,7 @@ namespace caodangngheytebinhduong.UIs
 
         public void Loadlist_news()
         {
-            var list = _List_news.LoadTinXemNhieu(0, 8);
+            var list = _List_news.LoadTinXemNhieu(0, 5);
             int count = 0;
             string str = "";
             count = list.Count;
@@ -37,7 +37,7 @@ namespace caodangngheytebinhduong.UIs
                     str += String.Format(@"<div class='tem-media'>
                         <div class='inner-item-media'>
                         <div class='content-media'>{0}
-                        <h2 class='tt-it-news'><a title='{1}'>{2}</a></h2>
+                        <h2 class='tt-it-news'><a href='{1}'>{2}</a></h2>
                         {3}</div></div></div>"
                         , img, link, list[i].NEWS_TITLE, list[i].NEWS_TITLE, list[i].NEWS_DESC);
                 }
